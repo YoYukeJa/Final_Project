@@ -10,7 +10,7 @@ public abstract class Database {
 
     }
 
-    public abstract void addUserEntry(User u, UserRegisterEntry re);
+    public abstract void addUserEntry(User u);
     public abstract void addGroupEntry(Group g);
     public abstract void addTicketEntry(Ticket t);
 
@@ -18,5 +18,5 @@ public abstract class Database {
     public abstract void editGroupEntry(Group g);
     public abstract void editTicketEntry(Ticket t);
 
-    public abstract UserRegisterEntry getUserEntry(User u);
+    public abstract User getUserEntry(User u);
 }
