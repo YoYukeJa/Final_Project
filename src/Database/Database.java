@@ -18,7 +18,7 @@ public abstract class Database {
     public abstract void editGroupEntry(Group g);
     public abstract void editTicketEntry(Ticket t);
 
-    public abstract User getUserEntry(User u);
+    public abstract User getUserEntry(int id);
 
     public abstract int generateAuthenticId(String choice);
 }

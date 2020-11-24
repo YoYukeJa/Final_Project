@@ -19,7 +19,7 @@ public class Main {
         db.addUserEntry("Alois");
         db.addUserEntry("Minx");
 
-        db.getUserEntry()
+        System.out.println(db.getUserEntry(1).getName());
         /*User user1 = new User("Jozef");
         User user2 = new User("Alice");
         User user3 = new User("Henry");*/

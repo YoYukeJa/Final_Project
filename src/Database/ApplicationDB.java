@@ -55,8 +55,8 @@ public class ApplicationDB extends Database {
     }
 
     @Override
-    public User getUserEntry(User u) {
-        return this.userDB.get(u.getUserId());
+    public User getUserEntry(int id) {
+        return this.userDB.get(id);
     }
 
     @Override
