@@ -23,7 +23,9 @@ public class ApplicationDB extends Database {
     }
 
     @Override
-    public void addUserEntry(User u) {
+    public void addUserEntry(String _name) {
+        int id = generateAuthenticId("user");
+        User u = new User(_name, id);
         this.userDB.add(u);
     }
 
@@ -55,5 +57,21 @@ public class ApplicationDB extends Database {
     @Override
     public User getUserEntry(User u) {
         return this.userDB.get(u.getUserId());
+    }
+
+    @Override
+    public int generateAuthenticId(String choice) {
+        int length = 0;
+        if (choice.toLowerCase() == "group") {
+            length = groupDB.size();
+            return length;
+        } else if (choice.toLowerCase() == "user") {
+            length = userDB.size();
+            return length;
+        } else if (choice.toLowerCase() == "ticket") {
+            length = ticketDB.size();
+            return length;
+        }
+        return -1;
     }
 }

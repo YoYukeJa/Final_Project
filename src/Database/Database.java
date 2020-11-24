@@ -10,7 +10,7 @@ public abstract class Database {
 
     }
 
-    public abstract void addUserEntry(User u);
+    public abstract void addUserEntry(String _name);
     public abstract void addGroupEntry(Group g);
     public abstract void addTicketEntry(Ticket t);
 
@@ -19,4 +19,6 @@ public abstract class Database {
     public abstract void editTicketEntry(Ticket t);
 
     public abstract User getUserEntry(User u);
+
+    public abstract int generateAuthenticId(String choice);
 }
