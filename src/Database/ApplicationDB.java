@@ -6,20 +6,21 @@ import User_related.Ticket;
 import User_related.User;
 
 import java.util.HashMap;
+import java.util.Vector;
 
 public class ApplicationDB extends Database {
 
     protected boolean single_instance;
-    private final HashMap<User, UserRegisterEntry> userDB;
+    private final Vector<User> userDB;
 
     public ApplicationDB(){
 
-        userDB = new HashMap<>();
+        userDB = new Vector<>();
     }
 
     @Override
     public void addUserEntry(User u, UserRegisterEntry re) {
-        this.userDB.put(u, re);
+        this.userDB.add(u);
     }
 
     @Override
@@ -49,6 +50,6 @@ public class ApplicationDB extends Database {
 
     @Override
     public UserRegisterEntry getUserEntry(User u) {
-        return this.userDB.get(u);
+        return this.userDB.get(u.id);
     }
 }
