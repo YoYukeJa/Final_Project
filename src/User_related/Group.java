@@ -1,22 +1,33 @@
 package User_related;
 
 import Interfaces.IGroup;
-import Interfaces.ITicket;
-import Interfaces.IUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Group implements IGroup {
-    @Override
-    public void addMember(IUser user) {
+    protected int groupID;
+    protected String groupName;
+    protected List<Integer> userIDList;
 
+    public Group(String _name, int _id){
+        groupID = _id;
+        groupName = _name;
+        userIDList = new ArrayList<>();
     }
 
     @Override
-    public void deleteMember(IUser user) {
-
+    public void addMember(int userID) {
+        userIDList.add(userID);
     }
 
     @Override
-    public void addPayment(ITicket ticket) {
+    public void deleteMember(int userID) {
+        userIDList.remove(userIDList);
+    }
+
+    @Override
+    public void addPayment(Ticket ticket) {
 
     }
 
@@ -28,5 +39,14 @@ public class Group implements IGroup {
     @Override
     public double[] getPreviousPayments() {
         return new double[0];
+    }
+
+    @Override
+    public List<Integer> getUsers(){
+        return userIDList;
+    }
+
+    public String getName() {
+        return groupName;
     }
 }

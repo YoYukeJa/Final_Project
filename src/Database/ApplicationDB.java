@@ -6,6 +6,7 @@ import User_related.Ticket;
 import User_related.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Vector;
 
 public class ApplicationDB extends Database {
@@ -30,7 +31,9 @@ public class ApplicationDB extends Database {
     }
 
     @Override
-    public void addGroupEntry(Group g) {
+    public void addGroupEntry(String _name) {
+        int id = generateAuthenticId("group");
+        Group g = new Group(_name, id);
         this.groupDB.add(g);
     }
 
@@ -57,6 +60,20 @@ public class ApplicationDB extends Database {
     @Override
     public User getUserEntry(int id) {
         return this.userDB.get(id);
+    }
+
+    @Override
+    public Group getGroupEntry(int id) {
+        return this.groupDB.get(id);
+    }
+
+    @Override
+    public void addMemberToGroup(int id, User u) {
+
+    }
+
+    public List<Integer> getUsersFromGroup(int id){
+        return this.groupDB.get(id).getUsers();
     }
 
     @Override
