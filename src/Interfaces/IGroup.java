@@ -11,4 +11,5 @@ public interface IGroup {
     public double getTotalBalance();
     public double[] getPreviousPayments();
     public List<Integer> getUsers();
+    public String getName();
 }

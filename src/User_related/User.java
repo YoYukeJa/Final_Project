@@ -31,18 +31,22 @@ public class User implements IUser {
 
     }
 
+    @Override
     public void addGroup(int id){
         groupIDList.add(id);
     }
 
+    @Override
     public List<Integer> getGroupIDList() {
         return groupIDList;
     }
 
+    @Override
     public int getUserId(){
         return userId;
     }
-
+    
+    @Override
     public String getName(){
         return name;
     }

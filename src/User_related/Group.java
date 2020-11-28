@@ -46,6 +46,7 @@ public class Group implements IGroup {
         return userIDList;
     }
 
+    @Override
     public String getName() {
         return groupName;
     }
