@@ -45,7 +45,7 @@ public class User implements IUser {
     public int getUserId(){
         return userId;
     }
-    
+
     @Override
     public String getName(){
         return name;
