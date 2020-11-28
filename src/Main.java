@@ -27,6 +27,9 @@ public class Main {
         g.addMember(0);
         g.addMember(1);
         g.addMember(3);
+        db.getUserEntry(0).addGroup(0);
+        db.getUserEntry(1).addGroup(0);
+        db.getUserEntry(3).addGroup(0);
         db.editGroupEntry(g);
         System.out.println(db.getUserEntry(1).getName());
         System.out.println(db.getGroupEntry(0).getName());
@@ -35,6 +38,9 @@ public class Main {
         for (int i = 0; i < lijstje.size(); i++){
             System.out.println(db.getUserEntry(lijstje.get(i)).getName());
         }
+        System.out.println(db.getUserEntry(0).getGroupIDList());
+        System.out.println(db.getUserEntry(1).getGroupIDList());
+        System.out.println(db.getUserEntry(3).getGroupIDList());
         /*User user1 = new User("Jozef");
         User user2 = new User("Alice");
         User user3 = new User("Henry");*/
