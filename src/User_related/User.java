@@ -8,12 +8,14 @@ import java.util.List;
 public class User implements IUser {
     protected int userId;
     protected List<Integer> groupIDList;
+    protected List<Integer> ticketIDList;
     protected String name;
 
     public User(String _name, int _id){
         name = _name;
         userId = _id;
         groupIDList = new ArrayList<>();
+        ticketIDList = new ArrayList<>();
     }
 
     @Override
@@ -22,8 +24,8 @@ public class User implements IUser {
     }
 
     @Override
-    public void addPayment(double amount) {
-
+    public void addPayment(int id) {
+        ticketIDList.add(id);
     }
 
     @Override
@@ -49,5 +51,9 @@ public class User implements IUser {
     @Override
     public String getName(){
         return name;
+    }
+
+    public List<Integer> getTickets(){
+        return ticketIDList;
     }
 }

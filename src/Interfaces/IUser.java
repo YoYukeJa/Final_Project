@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface IUser {
     public void deleteUser();
-    public void addPayment(double amount);
+    public void addPayment(int id);
     public void paybackPerson(double amount);
     public void addGroup(int id);
     public List<Integer> getGroupIDList();

@@ -23,12 +23,32 @@ public class Ticket implements ITicket {
     protected boolean total_amount;
     
 
-    public Ticket(int _id, int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, Type _type){
+    public Ticket(int _id, int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, int k){
         id = _id;
         group_id = _group_id;
         user_id = u_ids;
         amount_per_user = _amount_per_user;
-        type = _type;
+        type = editTypeOfTicket(k);
+    }
+
+    public Type editTypeOfTicket(int k) {
+        switch (k){
+            case 0:
+                return Type.movieticket;
+            case 1:
+                return Type.trafficticket;
+            case 2:
+                return Type.drinks;
+            case 3:
+                return Type.food;
+            case 4:
+                return Type.supermarket;
+            case 5:
+                return Type.housing;
+            case 6:
+                return Type.publictransport;
+        }
+        return null;
     }
 
     @Override

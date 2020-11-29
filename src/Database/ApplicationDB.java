@@ -26,20 +26,32 @@ public class ApplicationDB extends Database {
     @Override
     public void addUserEntry(String _name) {
         int id = generateAuthenticId("user");
-        User u = new User(_name, id);
-        this.userDB.add(u);
+        if (id != -1) {
+            User u = new User(_name, id);
+            this.userDB.add(u);
+        }
     }
 
     @Override
     public void addGroupEntry(String _name) {
         int id = generateAuthenticId("group");
-        Group g = new Group(_name, id);
-        this.groupDB.add(g);
+        if (id != -1) {
+            Group g = new Group(_name, id);
+            this.groupDB.add(g);
+        }
     }
 
     @Override
-    public void addTicketEntry(Ticket t) {
-        this.ticketDB.add(t);
+    public void addTicketEntry(int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, int k) {
+        int id = generateAuthenticId("ticket");
+        if (id != -1){
+            Ticket t = new Ticket(id, _group_id, u_ids, _amount_per_user, k);
+            this.ticketDB.add(t);
+            for (int i = 0; i < u_ids.size(); i++) {
+                userDB.get(i).addPayment(id);
+            }
+            groupDB.get(_group_id).addPayment(id);
+        }
     }
 
     @Override
@@ -65,6 +77,11 @@ public class ApplicationDB extends Database {
     @Override
     public Group getGroupEntry(int id) {
         return this.groupDB.get(id);
+    }
+
+    @Override
+    public Ticket getTicketEntry(int id){
+        return this.ticketDB.get(id);
     }
 
     @Override

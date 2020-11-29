@@ -7,9 +7,9 @@ import java.util.List;
 public interface IGroup {
     public void addMember(int userID);
     public void deleteMember(int userID);
-    public void addPayment(Ticket ticket);
+    public void addPayment(int id);
     public double getTotalBalance();
-    public double[] getPreviousPayments();
+    public List<Integer> getTicketIDList();
     public List<Integer> getUsers();
     public String getName();
 }
