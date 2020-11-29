@@ -56,11 +56,14 @@ public class Main {
         List<Integer> ticketIds = db.getGroupEntry(0).getTicketIDList();
         for (int i = 0; i < ticketIds.size(); i++){
             for (int j = 0; j < lijstje.size(); j++) {
-                //How to get the name of the user and the amount they need to pay
+                //How to get the name of the user and the amount they need to pay FROM A GROUP
                 System.out.println("De gebruiker " + db.getUserEntry(lijstje.get(j)).getName() + " moet betalen: " + db.getTicketEntry(ticketIds.get(i)).getTicketAmount(j));
             }
         }
-
+        //gives list of all tickets currently related to the user
+        System.out.println(db.getUserEntry(1).getTickets());
+        //Gives the total amount of a ticket in Double form.
+        System.out.println(db.getTicketEntry(0).getTotalAmount());
 
     }
 

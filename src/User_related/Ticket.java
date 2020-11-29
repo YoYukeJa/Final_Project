@@ -20,7 +20,6 @@ public class Ticket implements ITicket {
     protected List<Integer> user_id;
     protected List<Double> amount_per_user;
     protected Type type;
-    protected boolean total_amount;
     
 
     public Ticket(int _id, int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, int k){
@@ -59,5 +58,9 @@ public class Ticket implements ITicket {
     @Override
     public double getTicketAmount(int id) {
         return amount_per_user.get(id);
+    }
+
+    public double getTotalAmount(){
+        return amount_per_user.stream().mapToDouble(Double::doubleValue).sum();
     }
 }
