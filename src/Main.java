@@ -1,6 +1,5 @@
 import Database.ApplicationDB;
 import User_related.Group;
-import User_related.User;
 
 import java.util.ArrayList;
 import java.util.List;

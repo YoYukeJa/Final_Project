@@ -1,34 +1,28 @@
 package Database;
 
-import RegisterEntries.UserRegisterEntry;
 import User_related.Group;
 import User_related.Ticket;
-import User_related.User;
+import User_related.DefaultUser;
+import User_related.Users;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
 public class ApplicationDB extends Database {
 
-    protected boolean single_instance;
-    private final Vector<User> userDB;
-    private final Vector<Ticket> ticketDB;
-    private final Vector<Group> groupDB;
+
 
     public ApplicationDB(){
 
-        userDB = new Vector<>();
-        ticketDB = new Vector<>();
-        groupDB = new Vector<>();
+
     }
 
     @Override
     public void addUserEntry(String _name) {
         int id = generateAuthenticId("user");
         if (id != -1) {
-            User u = new User(_name, id);
-            this.userDB.add(u);
+            DefaultUser u = new DefaultUser(_name, id);
+            this.UsersDB.add(u);
         }
     }
 
@@ -48,14 +42,14 @@ public class ApplicationDB extends Database {
             Ticket t = new Ticket(id, _group_id, u_ids, _amount_per_user, k);
             this.ticketDB.add(t);
             for (int i = 0; i < u_ids.size(); i++) {
-                userDB.get(i).addPayment(id);
+                UsersDB.get(i).addPayment(id);
             }
             groupDB.get(_group_id).addPayment(id);
         }
     }
 
     @Override
-    public void editUserEntry(User u) {
+    public void editUserEntry(DefaultUser u) {
 
     }
 
@@ -70,8 +64,8 @@ public class ApplicationDB extends Database {
     }
 
     @Override
-    public User getUserEntry(int id) {
-        return this.userDB.get(id);
+    public Users getUserEntry(int id) {
+        return this.UsersDB.get(id);
     }
 
     @Override
@@ -85,7 +79,7 @@ public class ApplicationDB extends Database {
     }
 
     @Override
-    public void addMemberToGroup(int id, User u) {
+    public void addMemberToGroup(int id, DefaultUser u) {
 
     }
 
@@ -93,19 +87,4 @@ public class ApplicationDB extends Database {
         return this.groupDB.get(id).getUsers();
     }
 
-    @Override
-    public int generateAuthenticId(String choice) {
-        int length = 0;
-        if (choice.toLowerCase() == "group") {
-            length = groupDB.size();
-            return length;
-        } else if (choice.toLowerCase() == "user") {
-            length = userDB.size();
-            return length;
-        } else if (choice.toLowerCase() == "ticket") {
-            length = ticketDB.size();
-            return length;
-        }
-        return -1;
-    }
 }
