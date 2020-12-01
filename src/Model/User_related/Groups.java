@@ -52,4 +52,9 @@ public class Groups implements IGroup {
     public String getName() {
         return groupName;
     }
+
+    @Override
+    public int getIndex() {
+        return groupID;
+    }
 }

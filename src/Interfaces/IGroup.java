@@ -5,11 +5,12 @@ import User_related.Ticket;
 import java.util.List;
 
 public interface IGroup {
-    public void addMember(int userID);
-    public void deleteMember(int userID);
-    public void addPayment(int id);
-    public double getTotalBalance();
-    public List<Integer> getTicketIDList();
-    public List<Integer> getUsers();
-    public String getName();
+    void addMember(int userID);
+    void deleteMember(int userID);
+    void addPayment(int id);
+    double getTotalBalance();
+    List<Integer> getTicketIDList();
+    List<Integer> getUsers();
+    String getName();
+    int getIndex();
 }
