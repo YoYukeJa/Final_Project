@@ -5,13 +5,15 @@ import Interfaces.IUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class User implements IUser {
+public abstract class Users implements IUser {
+    // Class variables
     protected int userId;
     protected List<Integer> groupIDList;
     protected List<Integer> ticketIDList;
     protected String name;
 
-    public User(String _name, int _id){
+    // Constructor
+    public Users(String _name, int _id){
         name = _name;
         userId = _id;
         groupIDList = new ArrayList<>();

@@ -1,6 +1,5 @@
 import Database.ApplicationDB;
-import User_related.Group;
-import User_related.User;
+import Model.User_related.Groups;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +23,7 @@ public class Main {
         db.addUserEntry("Minx");
 
         db.addGroupEntry("testgroep");
-        Group g = db.getGroupEntry(0);
+        Groups g = db.getGroupEntry(0);
         g.addMember(0);
         g.addMember(1);
         g.addMember(3);
