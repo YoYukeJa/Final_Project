@@ -1,17 +1,17 @@
-package User_related;
+package Model.User_related;
 
 import Interfaces.IGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Group implements IGroup {
+public class Groups implements IGroup {
     protected int groupID;
     protected String groupName;
     protected List<Integer> userIDList;
     protected List<Integer> ticketIDList;
 
-    public Group(String _name, int _id){
+    public Groups(String _name, int _id){
         groupID = _id;
         groupName = _name;
         userIDList = new ArrayList<>();
