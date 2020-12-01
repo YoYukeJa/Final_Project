@@ -8,9 +8,14 @@ import User_related.User;
 import java.util.List;
 
 public abstract class Database {
+    protected boolean single_instance;
+
+
     public Database(){
 
     }
+
+    public abstract void addEntry(String _name);
 
     public abstract void addUserEntry(String _name);
     public abstract void addGroupEntry(String name);
