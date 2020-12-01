@@ -1,12 +1,11 @@
 package Database;
 
-import User_related.Group;
+import Model.User_related.Groups;
 import User_related.Ticket;
-import User_related.DefaultUser;
+import Model.User_related.DefaultUser;
 import User_related.Users;
 
 import java.util.List;
-import java.util.Vector;
 
 public class ApplicationDB extends Database {
 
@@ -21,7 +20,7 @@ public class ApplicationDB extends Database {
     public void addUserEntry(String _name) {
         int id = generateAuthenticId("user");
         if (id != -1) {
-            DefaultUser u = new DefaultUser(_name, id);
+            Users u = new DefaultUser(_name, id);
             this.UsersDB.add(u);
         }
     }
@@ -30,7 +29,7 @@ public class ApplicationDB extends Database {
     public void addGroupEntry(String _name) {
         int id = generateAuthenticId("group");
         if (id != -1) {
-            Group g = new Group(_name, id);
+            User_related.NormalGroup g = new User_related.NormalGroup(_name, id);
             this.groupDB.add(g);
         }
     }
@@ -54,7 +53,7 @@ public class ApplicationDB extends Database {
     }
 
     @Override
-    public void editGroupEntry(Group g) {
+    public void editGroupEntry(Groups g) {
 
     }
 
@@ -69,7 +68,7 @@ public class ApplicationDB extends Database {
     }
 
     @Override
-    public Group getGroupEntry(int id) {
+    public Groups getGroupEntry(int id) {
         return this.groupDB.get(id);
     }
 
