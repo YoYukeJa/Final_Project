@@ -23,7 +23,16 @@ public class TicketDatabase extends Database implements ITicketDatabase {
     }
 
     @Override
-    public void addTicketEntry(int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, int k) {
-
+    public int addTicketEntry(int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, int k) {
+        int id = generateAuthenticId(ticketDB);
+        if (id != -1){
+            Ticket t = new Ticket(id, _group_id, u_ids, _amount_per_user, k);
+            this.ticketDB.add(t);
+            /*for (int i = 0; i < u_ids.size(); i++) {
+                UsersDB.get(i).addPayment(id);
+            }
+            groupDB.get(_group_id).addPayment(id);*/
+        }
+        return id;
     }
 }
