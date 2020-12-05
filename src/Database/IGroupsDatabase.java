@@ -10,4 +10,5 @@ public interface IGroupsDatabase extends IDefaultDatabase{
     Groups getGroupEntry(int id);
     void addMemberToGroup(int id, Users u);
     List<Integer> getUsersFromGroup(int id);
+    void addTicketToGroup(int g_id, int ticket_id);
 }

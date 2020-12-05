@@ -28,4 +28,11 @@ public class UserDatabase extends Database implements IUserDatabase{
     public Users getUserEntry(int id) {
         return this.usersDB.get(id);
     }
+
+    @Override
+    public void addTicketToUser(int u_id, int ticket_id) {
+        Users u = usersDB.get(u_id);
+        u.addPayment(ticket_id);
+        editUserEntry(u);
+    }
 }

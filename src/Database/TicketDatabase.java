@@ -26,6 +26,7 @@ public class TicketDatabase extends Database implements ITicketDatabase {
     public int addTicketEntry(int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, int k) {
         int id = generateAuthenticId(ticketDB);
         if (id != -1){
+            System.out.println(_amount_per_user);
             Ticket t = new Ticket(id, _group_id, u_ids, _amount_per_user, k);
             this.ticketDB.add(t);
             /*for (int i = 0; i < u_ids.size(); i++) {

@@ -40,4 +40,11 @@ public class GroupsDatabase extends Database implements IGroupsDatabase {
     public List<Integer> getUsersFromGroup(int id){
         return this.groupDB.get(id).getUsers();
     }
+
+    @Override
+    public void addTicketToGroup(int g_id, int ticket_id) {
+        Groups g = groupDB.get(g_id);
+        g.addPayment(ticket_id);
+        editGroupEntry(g);
+    }
 }
