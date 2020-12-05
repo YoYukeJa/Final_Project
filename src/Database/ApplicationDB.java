@@ -7,7 +7,7 @@ import User_related.Users;
 
 import java.util.List;
 
-public class ApplicationDB extends Database {
+public class ApplicationDB {
 
 
 
@@ -15,7 +15,7 @@ public class ApplicationDB extends Database {
 
 
     }
-
+/*
     @Override
     public void addUserEntry(String _name) {
         int id = generateAuthenticId("user");
@@ -85,5 +85,5 @@ public class ApplicationDB extends Database {
     public List<Integer> getUsersFromGroup(int id){
         return this.groupDB.get(id).getUsers();
     }
-
+*/
 }
