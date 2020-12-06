@@ -56,27 +56,24 @@ public class Main {
         amounts.add(31.35);
         List<Integer> userlist = groupdb.getUsersFromGroup(0);
         int temp_id = ticketdb.addTicketEntry(0, groupdb.getUsersFromGroup(0), amounts, 2);
+        //int temp_id = 0;
         for (int i = 0; i < userlist.size(); i++){
             userdb.addTicketToUser(userlist.get(i), temp_id);
         }
         groupdb.addTicketToGroup(0, temp_id);
+
         List<Integer> ticketIds = groupdb.getGroupEntry(0).getTicketIDList();
-        System.out.println(ticketdb);
-        //System.out.println(ticketdb.getTicketEntry(0).getTotalAmount()); //TODO navragen waarom dit bugged
-        //System.out.println(ticketdb.getTicketEntry(ticketIds.get(0)).getTotalAmount());
-        /*
+
         for (int i = 0; i < ticketIds.size(); i++){
             for (int j = 0; j < lijstje.size(); j++) {
                 //How to get the name of the user and the amount they need to pay FROM A GROUP
-                userdb.getUserEntry(lijstje.get(j)).getName();
-                //ticketdb.getTicketEntry(ticketIds.get(i)).getTicketAmount(j);
-                //System.out.println("De gebruiker " + userdb.getUserEntry(lijstje.get(j)).getName() + " moet betalen: " + ticketdb.getTicketEntry(ticketIds.get(i)).getTicketAmount(j));
+                System.out.println("De gebruiker " + userdb.getUserEntry(lijstje.get(j)).getName() + " moet betalen: " + ticketdb.getTicketEntry(ticketIds.get(i)).getTicketAmount(j));
             }
         }
         //gives list of all tickets currently related to the user
         System.out.println(userdb.getUserEntry(1).getTickets());
         //Gives the total amount of a ticket in Double form.
-        System.out.println(ticketdb.getTicketEntry(0).getTotalAmount());*/
+        System.out.println(ticketdb.getTicketEntry(0).getTotalAmount());
 
     }
 

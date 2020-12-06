@@ -14,12 +14,12 @@ public class TicketDatabase extends Database implements ITicketDatabase {
 
     @Override
     public void editTicketEntry(Ticket t) {
-
+        ticketDB.set(t.getId(), t);
     }
 
     @Override
     public Ticket getTicketEntry(int id) {
-        return null;
+        return this.ticketDB.get(id);
     }
 
     @Override
