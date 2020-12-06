@@ -17,17 +17,23 @@ enum Type {
 public class Ticket implements ITicket {
     protected int id;
     protected int group_id;
+    protected boolean split_evenly = false;
     protected List<Integer> user_id;
     protected List<Double> amount_per_user;
     protected Type type;
     
 
-    public Ticket(int _id, int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, int k){
+    public Ticket(int _id, int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, boolean _split_evenly, int k){
         id = _id;
         group_id = _group_id;
         user_id = u_ids;
         amount_per_user = _amount_per_user;
         type = editTypeOfTicket(k);
+        split_evenly = _split_evenly;
+    }
+
+    public void changeSplit_evenly() {
+        this.split_evenly = !split_evenly;
     }
 
     public Type editTypeOfTicket(int k) {
