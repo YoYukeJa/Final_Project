@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Vector;
 
 public abstract class Database {
-    protected boolean single_instance;
+    //protected static Database single_instance;
 
     public Database(){
     }

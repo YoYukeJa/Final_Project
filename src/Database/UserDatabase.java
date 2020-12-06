@@ -7,9 +7,17 @@ import java.util.Vector;
 
 public class UserDatabase extends Database implements IUserDatabase{
     protected final Vector<Users> usersDB;
+    private static UserDatabase single_instance;
 
-    public UserDatabase() {
+    private UserDatabase() {
         usersDB = new Vector<>();
+    }
+
+    public static UserDatabase getInstance(){
+        if (single_instance == null){
+            single_instance = new UserDatabase();
+        }
+        return single_instance;
     }
 
     @Override

@@ -9,9 +9,17 @@ import java.util.Vector;
 
 public class GroupsDatabase extends Database implements IGroupsDatabase {
     protected final Vector<Groups> groupDB;
+    private static GroupsDatabase single_instance;
 
-    public GroupsDatabase() {
+    private GroupsDatabase() {
         this.groupDB = new Vector<>();
+    }
+
+    public static GroupsDatabase getInstance(){
+        if (single_instance == null){
+            single_instance = new GroupsDatabase();
+        }
+        return single_instance;
     }
 
     @Override

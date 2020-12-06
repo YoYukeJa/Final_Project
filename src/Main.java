@@ -14,9 +14,9 @@ public class Main {
     public Main(){}
 
     public void run(){
-        UserDatabase userdb = new UserDatabase();
-        GroupsDatabase groupdb = new GroupsDatabase();
-        TicketDatabase ticketdb = new TicketDatabase();
+        UserDatabase userdb = UserDatabase.getInstance();
+        GroupsDatabase groupdb = GroupsDatabase.getInstance();
+        TicketDatabase ticketdb = TicketDatabase.getInstance();
 
         userdb.addEntry("Alice");
         userdb.addEntry("Mina");

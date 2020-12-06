@@ -7,9 +7,17 @@ import java.util.Vector;
 
 public class TicketDatabase extends Database implements ITicketDatabase {
     protected final Vector<Ticket> ticketDB;
+    private static TicketDatabase single_instance;
 
     public TicketDatabase() {
         this.ticketDB = new Vector<>();
+    }
+
+    public static TicketDatabase getInstance(){
+        if (single_instance == null){
+            single_instance = new TicketDatabase();
+        }
+        return single_instance;
     }
 
     @Override
