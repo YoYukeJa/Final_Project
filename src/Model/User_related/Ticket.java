@@ -55,6 +55,10 @@ public class Ticket implements ITicket {
 
     }
 
+    public int getId(){
+        return id;
+    }
+
     @Override
     public double getTicketAmount(int id) {
         return amount_per_user.get(id);
