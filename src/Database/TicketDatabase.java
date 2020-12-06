@@ -29,10 +29,6 @@ public class TicketDatabase extends Database implements ITicketDatabase {
             System.out.println(_amount_per_user);
             Ticket t = new Ticket(id, _group_id, u_ids, _amount_per_user,false, k);
             this.ticketDB.add(t);
-            /*for (int i = 0; i < u_ids.size(); i++) {
-                UsersDB.get(i).addPayment(id);
-            }
-            groupDB.get(_group_id).addPayment(id);*/
         }
         return id;
     }

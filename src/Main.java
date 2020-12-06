@@ -1,4 +1,3 @@
-import Database.ApplicationDB;
 import Database.*;
 import Model.User_related.Groups;
 
