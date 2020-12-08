@@ -1,5 +1,6 @@
 import Database.*;
 import Model.User_related.Groups;
+import View.MainPage_GUI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ public class Main {
 
     public static void main(String[] args){
         Main main = new Main();
+        MainPage_GUI mainPage_gui = new MainPage_GUI();
         main.run();
     }
 
