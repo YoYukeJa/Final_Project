@@ -1,4 +1,4 @@
-package Interfaces;
+package Model.User_related.Interfaces;
 
 import java.util.List;
 

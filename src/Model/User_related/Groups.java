@@ -1,6 +1,6 @@
 package Model.User_related;
 
-import Interfaces.IGroup;
+import Model.User_related.Interfaces.IGroup;
 
 import java.util.ArrayList;
 import java.util.List;

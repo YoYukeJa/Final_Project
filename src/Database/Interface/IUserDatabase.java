@@ -1,4 +1,4 @@
-package Database;
+package Database.Interface;
 
 import User_related.Users;
 

@@ -1,6 +1,4 @@
-package Interfaces;
-
-import User_related.Ticket;
+package Model.User_related.Interfaces;
 
 import java.util.List;
 

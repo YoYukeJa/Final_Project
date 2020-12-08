@@ -1,11 +1,12 @@
 package Database;
 
+import Database.Interface.IUserDatabase;
 import Model.User_related.DefaultUser;
 import User_related.Users;
 
 import java.util.Vector;
 
-public class UserDatabase extends Database implements IUserDatabase{
+public class UserDatabase extends Database implements IUserDatabase {
     protected final Vector<Users> usersDB;
     private static UserDatabase single_instance;
 

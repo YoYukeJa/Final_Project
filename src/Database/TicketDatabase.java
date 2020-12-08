@@ -1,5 +1,6 @@
 package Database;
 
+import Database.Interface.ITicketDatabase;
 import User_related.Ticket;
 
 import java.util.List;

@@ -17,11 +17,12 @@ public class MainPage_GUI implements ActionListener {
 
         button = new JButton("Click me");
         button.addActionListener(this);
+        button.setSize(300, 100);
 
         label = new JLabel("Number of clicks: 0");
 
         JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        panel.setBorder(BorderFactory.createEmptyBorder(600, 600, 200, 600));
         panel.setLayout(new GridLayout(0, 1));
         panel.add(button);
         panel.add(label);

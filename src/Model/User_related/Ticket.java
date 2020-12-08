@@ -1,6 +1,6 @@
 package User_related;
 
-import Interfaces.ITicket;
+import Model.User_related.Interfaces.ITicket;
 
 import java.util.List;
 

@@ -1,7 +1,8 @@
 package Database;
 
+import Database.Interface.IGroupsDatabase;
 import Model.User_related.Groups;
-import User_related.NormalGroup;
+import Model.User_related.NormalGroup;
 import User_related.Users;
 
 import java.util.List;

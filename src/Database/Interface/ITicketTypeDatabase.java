@@ -1,4 +1,6 @@
-package Database;
+package Database.Interface;
+
+import Database.Database;
 
 import java.util.List;
 

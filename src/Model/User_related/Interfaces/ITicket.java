@@ -1,4 +1,4 @@
-package Interfaces;
+package Model.User_related.Interfaces;
 
 public interface ITicket {
     public void editTicket();
