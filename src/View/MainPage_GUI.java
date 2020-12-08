@@ -13,7 +13,7 @@ public class MainPage_GUI implements ActionListener {
 
 
     public MainPage_GUI(){
-        JFrame frame = new JFrame();
+        frame = new JFrame();
 
         button = new JButton("Click me");
         button.addActionListener(this);
