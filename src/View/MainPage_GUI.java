@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainPage_GUI implements ActionListener {
+public class MainPage_GUI extends JFrame implements ActionListener {
     private int count = 0;
     private JFrame frame;
     private JLabel label;
@@ -34,9 +34,7 @@ public class MainPage_GUI implements ActionListener {
         frame.setVisible(true);
     }
 
-    public static void main(String[] args){
-        new MainPage_GUI();
-    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
