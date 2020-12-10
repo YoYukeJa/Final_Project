@@ -33,16 +33,16 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
         userText.setBounds(100, 20, 165, 25);
         passwordText.setBounds(100, 50, 165, 25);
 
-        panel.setBorder(BorderFactory.createEmptyBorder(300, 300, 200, 300));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 20, 300));
         panel.setLayout(null);
-        panel.add(button);
         panel.add(userLabel);
         panel.add(passwordLabel);
         panel.add(successLabel);
+        panel.add(button);
         panel.add(userText);
         panel.add(passwordText);
 
-        frame.setSize(100, 100);
+        //frame.setSize(100, 100);
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Main Page");
