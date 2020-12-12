@@ -1,6 +1,7 @@
 package Database;
 
 import Database.Interface.ITicketDatabase;
+import Model.Factories.TicketFactoryProvider;
 import User_related.Ticket;
 
 import java.util.List;
@@ -36,7 +37,7 @@ public class TicketDatabase extends Database implements ITicketDatabase {
         int id = generateAuthenticId(ticketDB);
         if (id != -1){
             System.out.println(_amount_per_user);
-            Ticket t = new Ticket(id, _group_id, u_ids, _amount_per_user,false, k);
+            Ticket t = new TicketFactoryProvider().getTicketFactory(id, _group_id, u_ids, _amount_per_user,false, k);
             this.ticketDB.add(t);
         }
         return id;
