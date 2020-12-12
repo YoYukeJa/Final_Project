@@ -1,5 +1,7 @@
 package View;
 
+import Controller.LoginController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,8 +14,10 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
     private JButton button;
     private JTextField userText;
     private JPasswordField passwordText;
+    private LoginController controller;
 
     public LoginPage_GUI(){
+        controller = new LoginController();
         frame = new JFrame();
         panel = new JPanel();
         userLabel = new JLabel("User");
@@ -61,7 +65,7 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
 
         System.out.println(user + ", " + password);
 
-        if (user.equals("Anso") && password.equals("appelsap")){
+        if (controller.checkIfLoginIsCorrect(user, password)){
             successLabel.setText("Succesful login");
             MainPage_GUI mainPage_gui = new MainPage_GUI();
             //mainPage_gui.Initialize();

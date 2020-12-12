@@ -38,6 +38,10 @@ public class UserDatabase extends Database implements IUserDatabase {
         return this.usersDB.get(id);
     }
 
+    public int getLengthOfDatabase(){
+        return usersDB.size();
+    }
+
     @Override
     public void addTicketToUser(int u_id, int ticket_id) {
         Users u = usersDB.get(u_id);
