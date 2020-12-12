@@ -5,7 +5,7 @@ public class FactoryProvider {
         if ("user".equalsIgnoreCase(choice)){
             return new UserFactory();
         } else if ("group".equalsIgnoreCase(choice)){
-            return null;
+            return new GroupFactory();
         }
         return null;
     }
