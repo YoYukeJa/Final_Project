@@ -54,7 +54,7 @@ public class LoginPage_GUI extends JFrame {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RegisterPage registerPage = new RegisterPage();
+                RegisterPage_GUI registerPage = new RegisterPage_GUI();
                 System.out.println("Druk");
             }
         });
