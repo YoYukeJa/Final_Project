@@ -42,7 +42,7 @@ public class LoginPage_GUI extends JFrame {
                 if (controller.checkIfLoginIsCorrect(user, password)){
                     successLabel.setText("Succesful login");
                     MainPage_GUI mainPage_gui = new MainPage_GUI();
-                    //mainPage_gui.Initialize();
+                    mainPage_gui.Initialize();
                     //MainPage_GUI mainPage_gui = new MainPage_GUI();
                     //mainPage_gui.setVisible(true);
                     //this.setVisible(false);
@@ -55,7 +55,7 @@ public class LoginPage_GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RegisterPage_GUI registerPage = new RegisterPage_GUI();
-                System.out.println("Druk");
+                registerPage.Initialize();
             }
         });
 

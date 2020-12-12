@@ -13,6 +13,9 @@ public class MainPage_GUI extends JFrame implements ActionListener {
 
 
     public MainPage_GUI(){
+    }
+
+    public void Initialize(){
         frame = new JFrame();
 
         button = new JButton("Click me");

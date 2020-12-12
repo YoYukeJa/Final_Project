@@ -45,7 +45,7 @@ public class RegisterPage_GUI extends JFrame {
                 if (controller.RegisterNewUser(user)){
                     successLabel.setText("Successful registration");
                     MainPage_GUI mainPage_gui = new MainPage_GUI();
-                    //mainPage_gui.Initialize();
+                    mainPage_gui.Initialize();
                     //MainPage_GUI mainPage_gui = new MainPage_GUI();
                     //mainPage_gui.setVisible(true);
                     //this.setVisible(false);
