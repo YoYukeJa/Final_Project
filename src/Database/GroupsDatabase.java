@@ -1,6 +1,7 @@
 package Database;
 
 import Database.Interface.IGroupsDatabase;
+import Model.Factories.GroupFactory;
 import Model.User_related.Groups;
 import Model.User_related.NormalGroup;
 import User_related.Users;
@@ -26,7 +27,7 @@ public class GroupsDatabase extends Database implements IGroupsDatabase {
     @Override
     public void addEntry(String _name) {
         int id = generateAuthenticId(groupDB);
-        Groups g = new NormalGroup(_name, id);
+        Groups g = new GroupFactory().create("normal", _name, id);
         this.groupDB.add(g);
     }
 
