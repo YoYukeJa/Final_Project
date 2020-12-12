@@ -23,6 +23,7 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
         userLabel = new JLabel("User");
         passwordLabel = new JLabel("Password");
         successLabel = new JLabel("");
+        failureLabel = new JLabel("");
         button = new JButton("Login");
         userText = new JTextField(20);
         passwordText = new JPasswordField();
@@ -33,6 +34,7 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
         userLabel.setBounds(10, 20, 80, 25);
         passwordLabel.setBounds(10, 50, 80, 25);
         successLabel.setBounds(10, 110, 300, 25);
+        failureLabel.setBounds(10, 110, 500, 25);
 
         userText.setBounds(100, 20, 165, 25);
         passwordText.setBounds(100, 50, 165, 25);
@@ -42,6 +44,7 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
         panel.add(userLabel);
         panel.add(passwordLabel);
         panel.add(successLabel);
+        panel.add(failureLabel);
         panel.add(button);
         panel.add(userText);
         panel.add(passwordText);
