@@ -1,4 +1,4 @@
 package Model.Factories;
 
-public class TicketFactory {
+public class TicketFactory extends FactoryProvider {
 }
