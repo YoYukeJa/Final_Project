@@ -7,11 +7,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginPage_GUI extends JFrame implements ActionListener {
+public class LoginPage_GUI extends JFrame {
     private JFrame frame;
     private JPanel panel;
     private JLabel userLabel, passwordLabel, successLabel, failureLabel;
-    private JButton button;
+    private JButton loginButton, registerButton;
     private JTextField userText;
     private JPasswordField passwordText;
     private LoginController controller;
@@ -24,12 +24,40 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
         passwordLabel = new JLabel("Password");
         successLabel = new JLabel("");
         failureLabel = new JLabel("");
-        button = new JButton("Login");
+        loginButton = new JButton("Login");
+        registerButton = new JButton("Register");
         userText = new JTextField(20);
         passwordText = new JPasswordField();
 
-        button.setBounds(10, 80, 80, 25);
-        button.addActionListener(this);
+        loginButton.setBounds(10, 80, 80, 25);
+        registerButton.setBounds(100, 80, 100, 25);
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String user = userText.getText();
+                String password = passwordText.getText();
+
+                System.out.println(user + ", " + password);
+
+                if (controller.checkIfLoginIsCorrect(user, password)){
+                    successLabel.setText("Succesful login");
+                    MainPage_GUI mainPage_gui = new MainPage_GUI();
+                    //mainPage_gui.Initialize();
+                    //MainPage_GUI mainPage_gui = new MainPage_GUI();
+                    //mainPage_gui.setVisible(true);
+                    //this.setVisible(false);
+                } else {
+                    failureLabel.setText("Failed to login. Incorrect Password or username entered.");
+                }
+            }
+        });
+        registerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RegisterPage registerPage = new RegisterPage();
+                System.out.println("Druk");
+            }
+        });
 
         userLabel.setBounds(10, 20, 80, 25);
         passwordLabel.setBounds(10, 50, 80, 25);
@@ -45,7 +73,8 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
         panel.add(passwordLabel);
         panel.add(successLabel);
         panel.add(failureLabel);
-        panel.add(button);
+        panel.add(loginButton);
+        panel.add(registerButton);
         panel.add(userText);
         panel.add(passwordText);
 
@@ -59,24 +88,5 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
 
     public static void main(String[] args){
         new LoginPage_GUI();
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        String user = userText.getText();
-        String password = passwordText.getText();
-
-        System.out.println(user + ", " + password);
-
-        if (controller.checkIfLoginIsCorrect(user, password)){
-            successLabel.setText("Succesful login");
-            MainPage_GUI mainPage_gui = new MainPage_GUI();
-            //mainPage_gui.Initialize();
-        } else {
-            failureLabel.setText("Failed to login. Incorrect Password or username entered.");
-        }
-        //MainPage_GUI mainPage_gui = new MainPage_GUI();
-        //mainPage_gui.setVisible(true);
-        //this.setVisible(false);
     }
 }
