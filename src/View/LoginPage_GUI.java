@@ -69,6 +69,8 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
             successLabel.setText("Succesful login");
             MainPage_GUI mainPage_gui = new MainPage_GUI();
             //mainPage_gui.Initialize();
+        } else {
+            failureLabel.setText("Failed to login. Incorrect Password or username entered.");
         }
         //MainPage_GUI mainPage_gui = new MainPage_GUI();
         //mainPage_gui.setVisible(true);
