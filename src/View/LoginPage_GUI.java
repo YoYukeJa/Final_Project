@@ -63,6 +63,8 @@ public class LoginPage_GUI extends JFrame implements ActionListener {
 
         if (user.equals("Anso") && password.equals("appelsap")){
             successLabel.setText("Succesful login");
+            MainPage_GUI mainPage_gui = new MainPage_GUI();
+            //mainPage_gui.Initialize();
         }
         //MainPage_GUI mainPage_gui = new MainPage_GUI();
         //mainPage_gui.setVisible(true);
