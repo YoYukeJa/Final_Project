@@ -1,9 +1,7 @@
 package Database;
 
 import Database.Interface.IUserDatabase;
-import Model.Factories.FactoryProvider;
 import Model.Factories.UserFactory;
-import Model.User_related.DefaultUser;
 import User_related.Users;
 
 import java.util.Vector;
