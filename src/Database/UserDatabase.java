@@ -1,7 +1,7 @@
 package Database;
 
 import Database.Interface.IUserDatabase;
-import Model.User_related.DefaultUser;
+import Model.Factories.UserFactory;
 import User_related.Users;
 
 import java.util.Vector;
@@ -24,7 +24,7 @@ public class UserDatabase extends Database implements IUserDatabase {
     @Override
     public void addEntry(String _name) {
         int id = generateAuthenticId(usersDB);
-        Users u = new DefaultUser(_name, id);
+        Users u  = new UserFactory().create("default", _name, id);
         usersDB.add(u);
     }
 

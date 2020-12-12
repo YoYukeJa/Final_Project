@@ -12,6 +12,9 @@ public class MainPage_GUI extends JFrame {
 
 
     public MainPage_GUI(){
+    }
+
+    public void Initialize(){
         frame = new JFrame();
 
         group_button = new JButton("Groups");
