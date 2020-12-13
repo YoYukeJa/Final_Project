@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args){
         Main main = new Main();
         LoginPage_GUI mainPage_gui = new LoginPage_GUI();
+        mainPage_gui.Initialize();
         main.run();
     }
 

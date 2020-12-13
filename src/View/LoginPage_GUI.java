@@ -17,7 +17,13 @@ public class LoginPage_GUI extends JFrame {
     private LoginController controller;
 
     public LoginPage_GUI(){
-        controller = new LoginController();
+    }
+
+    public static void main(String[] args){
+        new LoginPage_GUI();
+    }
+
+    public void Initialize() {controller = new LoginController();
         frame = new JFrame();
         panel = new JPanel();
         userLabel = new JLabel("User");
@@ -41,12 +47,14 @@ public class LoginPage_GUI extends JFrame {
 
                 if (controller.checkIfLoginIsCorrect(user, password)){
                     successLabel.setText("Succesful login");
+                    failureLabel.setText("");
                     MainPage_GUI mainPage_gui = new MainPage_GUI();
                     mainPage_gui.Initialize();
                     //MainPage_GUI mainPage_gui = new MainPage_GUI();
                     //mainPage_gui.setVisible(true);
                     //this.setVisible(false);
                 } else {
+                    successLabel.setText("");
                     failureLabel.setText("Failed to login. Incorrect Password or username entered.");
                 }
             }
@@ -84,9 +92,5 @@ public class LoginPage_GUI extends JFrame {
         frame.setTitle("Main Page");
         frame.pack();
         frame.setVisible(true);
-    }
-
-    public static void main(String[] args){
-        new LoginPage_GUI();
     }
 }
