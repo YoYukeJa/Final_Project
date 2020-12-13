@@ -46,6 +46,7 @@ public class AddTicket_GUI {
 
         splitting_evenly.setBounds(100, 100, 200, 50);
         add_ticket_button.setBounds(10, 120, 80, 25);
+        type_options.setSize(80, 25);
 
         add_ticket_button.addActionListener(new ActionListener() {
             @Override
