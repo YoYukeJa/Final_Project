@@ -4,7 +4,7 @@ import Model.User_related.Interfaces.ITicket;
 
 import java.util.List;
 
-enum Type {
+public enum TicketType {
     movieticket,
     trafficticket,
     drinks,
@@ -20,7 +20,7 @@ public class Ticket implements ITicket {
     protected boolean split_evenly = false;
     protected List<Integer> user_id;
     protected List<Double> amount_per_user;
-    protected Type type;
+    protected TicketType ticketType;
     
 
     public Ticket(int _id, int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, boolean _split_evenly, int k){
@@ -28,7 +28,7 @@ public class Ticket implements ITicket {
         group_id = _group_id;
         user_id = u_ids;
         amount_per_user = _amount_per_user;
-        type = editTypeOfTicket(k);
+        ticketType = editTypeOfTicket(k);
         split_evenly = _split_evenly;
     }
 
@@ -36,22 +36,22 @@ public class Ticket implements ITicket {
         this.split_evenly = !split_evenly;
     }
 
-    public Type editTypeOfTicket(int k) {
+    public TicketType editTypeOfTicket(int k) {
         switch (k){
             case 0:
-                return Type.movieticket;
+                return TicketType.movieticket;
             case 1:
-                return Type.trafficticket;
+                return TicketType.trafficticket;
             case 2:
-                return Type.drinks;
+                return TicketType.drinks;
             case 3:
-                return Type.food;
+                return TicketType.food;
             case 4:
-                return Type.supermarket;
+                return TicketType.supermarket;
             case 5:
-                return Type.housing;
+                return TicketType.housing;
             case 6:
-                return Type.publictransport;
+                return TicketType.publictransport;
         }
         return null;
     }
