@@ -33,11 +33,11 @@ public class TicketDatabase extends Database implements ITicketDatabase {
     }
 
     @Override
-    public int addTicketEntry(int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, int k) {
+    public int addTicketEntry(int _group_id, List<Integer> u_ids, List<Double> _amount_per_user, boolean split_evenly, int k) {
         int id = generateAuthenticId(ticketDB);
         if (id != -1){
             System.out.println(_amount_per_user);
-            Ticket t = new TicketFactoryProvider().getTicketFactory(id, _group_id, u_ids, _amount_per_user,false, k);
+            Ticket t = new TicketFactoryProvider().getTicketFactory(id, _group_id, u_ids, _amount_per_user, split_evenly, k);
             this.ticketDB.add(t);
         }
         return id;

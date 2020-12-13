@@ -22,6 +22,8 @@ public class AddTicket_GUI {
     }
 
     public void Initialize() {
+        split_evenly = false;
+
         frame = new JFrame();
         add_ticket_button = new JButton("Add ticket");
         splitting_evenly = new JCheckBox("Splitting evenly");
@@ -40,7 +42,8 @@ public class AddTicket_GUI {
         splitting_evenly.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-
+                split_evenly = !split_evenly;
+                System.out.println(split_evenly);
             }
         });
 

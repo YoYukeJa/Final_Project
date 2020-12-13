@@ -58,7 +58,7 @@ public class Main {
         amounts.add(23.4);
         amounts.add(31.35);
         List<Integer> userlist = groupdb.getUsersFromGroup(0);
-        int temp_id = ticketdb.addTicketEntry(0, groupdb.getUsersFromGroup(0), amounts, 2);
+        int temp_id = ticketdb.addTicketEntry(0, groupdb.getUsersFromGroup(0), amounts, false,2);
         //int temp_id = 0;
         for (int i = 0; i < userlist.size(); i++){
             userdb.addTicketToUser(userlist.get(i), temp_id);

@@ -8,6 +8,7 @@ public abstract class AbstractController {
     protected UserDatabase userDB;
     protected GroupsDatabase groupsDB;
     protected TicketDatabase ticketDB;
+    protected Integer current_user;
 
     public AbstractController(){
         userDB = UserDatabase.getInstance();
