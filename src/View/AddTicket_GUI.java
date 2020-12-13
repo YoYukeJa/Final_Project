@@ -66,6 +66,14 @@ public class AddTicket_GUI {
             }
         });
 
+        System.out.println(type_options.getSelectedItem());
+        type_options.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(type_options.getSelectedItem());
+            }
+        });
+
         label = new JLabel("Your ticket has been added.");
 
         JPanel panel = new JPanel();
