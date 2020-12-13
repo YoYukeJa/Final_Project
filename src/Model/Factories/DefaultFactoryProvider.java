@@ -1,7 +1,7 @@
 package Model.Factories;
 
 import Model.User_related.Groups;
-import User_related.Ticket;
+import Model.User_related.Ticket;
 
 import java.util.List;
 
