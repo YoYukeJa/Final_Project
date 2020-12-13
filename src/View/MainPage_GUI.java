@@ -36,7 +36,8 @@ public class MainPage_GUI extends JFrame {
         new_ticket_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                AddTicket_GUI addTicket_gui = new AddTicket_GUI();
+                addTicket_gui.Initialize();
             }
         });
         ticket_history_button.addActionListener(new ActionListener() {
