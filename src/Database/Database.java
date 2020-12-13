@@ -1,7 +1,7 @@
 package Database;
 
 import Model.User_related.Groups;
-import User_related.Ticket;
+import Model.User_related.Ticket;
 import Model.User_related.DefaultUser;
 import User_related.Users;
 

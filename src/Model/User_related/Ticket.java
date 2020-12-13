@@ -1,4 +1,4 @@
-package User_related;
+package Model.User_related;
 
 import Model.User_related.Interfaces.ITicket;
 

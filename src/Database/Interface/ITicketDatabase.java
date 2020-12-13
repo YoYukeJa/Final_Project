@@ -1,6 +1,6 @@
 package Database.Interface;
 
-import User_related.Ticket;
+import Model.User_related.Ticket;
 
 public interface ITicketDatabase extends ITicketTypeDatabase {
 

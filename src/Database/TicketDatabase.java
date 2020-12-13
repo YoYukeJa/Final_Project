@@ -2,7 +2,7 @@ package Database;
 
 import Database.Interface.ITicketDatabase;
 import Model.Factories.TicketFactoryProvider;
-import User_related.Ticket;
+import Model.User_related.Ticket;
 
 import java.util.List;
 import java.util.Vector;
