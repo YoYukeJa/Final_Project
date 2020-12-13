@@ -1,6 +1,5 @@
 import Database.*;
 import Model.User_related.Groups;
-import Model.User_related.TicketType;
 import View.LoginPage_GUI;
 import View.MainPage_GUI;
 

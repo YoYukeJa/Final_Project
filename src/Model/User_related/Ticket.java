@@ -4,7 +4,7 @@ import Model.User_related.Interfaces.ITicket;
 
 import java.util.List;
 
-public enum TicketType {
+enum TicketType {
     movieticket,
     trafficticket,
     drinks,
