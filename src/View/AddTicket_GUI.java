@@ -58,6 +58,9 @@ public class AddTicket_GUI {
         group_list.setSize(80, 25);
         end_label.setBounds(10, 200, 100, 25);
 
+        getGroupID(groupids, group_names);
+        getUserNamesFromGroup();
+
         add_ticket_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,15 +80,7 @@ public class AddTicket_GUI {
                 if (split_evenly){
                     end_label.setText("Te wer von da");
                 } else {
-                    username_labels.clear();
-                    List<String> usernames = ticketController.getUsernamesFromGroup(groupID);
-                    for (int i = 0; i < group_names.size(); i++) {
-                        username_labels.add(new JLabel(usernames.get(i)));
-                        username_labels.get(i).setBounds(300, (i * 25) + 10, 100, 25);
-                        username_labels.get(i).setVisible(true);
-                        panel.add(username_labels.get(i));
-                    }
-                    System.out.println(usernames);
+                    getUserNamesFromGroup();
                     end_label.setText("Te ne mer von da");
                 }
             }
@@ -96,12 +91,8 @@ public class AddTicket_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(group_list.getSelectedItem());
-                for (int i = 0; i < groupids.size(); i++){
-                    if (group_list.getSelectedItem().equals(group_names.get(i))){
-                        groupID = groupids.get(i);
-                        System.out.println(groupID);
-                    }
-                }
+                getGroupID(groupids, group_names);
+                getUserNamesFromGroup();
             }
         });
 
@@ -121,5 +112,26 @@ public class AddTicket_GUI {
         frame.setTitle("Main Page");
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public void getGroupID(List<Integer> groupids, List<String> group_names) {
+        for (int i = 0; i < groupids.size(); i++){
+            if (group_list.getSelectedItem().equals(group_names.get(i))){
+                groupID = groupids.get(i);
+                System.out.println(groupID);
+            }
+        }
+    }
+
+    public void getUserNamesFromGroup(){
+        username_labels.clear();
+        List<String> usernames = ticketController.getUsernamesFromGroup(groupID);
+        for (int i = 0; i < usernames.size(); i++) {
+            username_labels.add(new JLabel(usernames.get(i)));
+            username_labels.get(i).setBounds(150, (i * 25) + 10, 100, 25);
+            //username_labels.get(i).setVisible(true);
+            panel.add(username_labels.get(i));
+        }
+        System.out.println(usernames);
     }
 }
