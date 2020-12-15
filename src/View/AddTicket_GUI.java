@@ -10,18 +10,20 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class AddTicket_GUI {
     private JFrame frame;
-    private JLabel label;
+    private JPanel panel;
+    private JLabel end_label;
+    private List<JLabel> username_labels;
     private JButton add_ticket_button;
-    private JTextField input_amount;
+    private JTextField input_amount, ticket_type;
+    private List<JTextField> input_amounts;
     private List<JTextField> amount_per_user;
     private Boolean split_evenly;
     private JCheckBox splitting_evenly;
     private TicketController ticketController;
-    private JComboBox type_options;
+    private JComboBox group_list;
 
     private int groupID;
 
@@ -42,16 +44,25 @@ public class AddTicket_GUI {
         add_ticket_button = new JButton("Add ticket");
         splitting_evenly = new JCheckBox("Splitting evenly");
         input_amount = new JTextField(20);
-        type_options = new JComboBox(group_names.toArray());
+        ticket_type = new JTextField(20);
+        group_list = new JComboBox(group_names.toArray());
+        end_label = new JLabel("Your ticket has been added.");
+        username_labels = new ArrayList<JLabel>();
+
+        panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder(600, 600, 200, 600));
+        panel.setLayout(null);
 
         splitting_evenly.setBounds(100, 100, 200, 50);
         add_ticket_button.setBounds(10, 120, 80, 25);
-        type_options.setSize(80, 25);
+        group_list.setSize(80, 25);
+        end_label.setBounds(10, 200, 100, 25);
 
         add_ticket_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //ticketController.createNewTicket(split_evenly);
+                end_label.setText("clicked finish button");
             }
         });
 
@@ -63,26 +74,45 @@ public class AddTicket_GUI {
 
                 split_evenly = !split_evenly;
                 System.out.println(split_evenly);
+                if (split_evenly){
+                    end_label.setText("Te wer von da");
+                } else {
+                    if (username_labels.size() != group_names.size()){
+                        for (int i = 0; i < group_names.size(); i++) {
+                            username_labels.add(new JLabel(group_names.get(i)));
+                            username_labels.get(i).setBounds(300, (i * 25) + 10, 100, 25);
+                            username_labels.get(i).setVisible(true);
+                            panel.add(username_labels.get(i));
+                        }
+                    }
+                    end_label.setText("Te ne mer von da");
+                }
             }
         });
 
-        System.out.println(type_options.getSelectedItem());
-        type_options.addActionListener(new ActionListener() {
+        System.out.println(group_list.getSelectedItem());
+        group_list.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(type_options.getSelectedItem());
+                System.out.println(group_list.getSelectedItem());
+                for (int i = 0; i < groupids.size(); i++){
+                    if (group_list.getSelectedItem().equals(group_names.get(i))){
+                        groupID = groupids.get(i);
+                    }
+                }
             }
         });
 
-        label = new JLabel("Your ticket has been added.");
 
-        JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(600, 600, 200, 600));
-        panel.setLayout(null);
+
+
         panel.add(add_ticket_button);
         panel.add(splitting_evenly);
-        panel.add(label);
-        panel.add(type_options);
+        panel.add(end_label);
+        panel.add(group_list);
+        /*for (JLabel username_label : username_labels) {
+            panel.add(username_label);
+        }*/
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
