@@ -103,9 +103,7 @@ public class AddTicket_GUI {
         panel.add(splitting_evenly);
         panel.add(end_label);
         panel.add(group_list);
-        /*for (JLabel username_label : username_labels) {
-            panel.add(username_label);
-        }*/
+        
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
