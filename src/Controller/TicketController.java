@@ -26,7 +26,7 @@ public class TicketController extends AbstractController{
     public List<String> getUsernamesFromGroup(int id){
         List<Integer> user_ids = groupsDB.getUsersFromGroup(id);
         List<String> usernames = new ArrayList<>();
-        for (int i = 0; i < userDB.getLengthOfDatabase(); i++) {
+        for (int i = 0; i < user_ids.size(); i++) {
             usernames.add(userDB.getUserEntry(user_ids.get(i)).getName());
         }
         return usernames;
