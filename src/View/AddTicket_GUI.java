@@ -48,6 +48,7 @@ public class AddTicket_GUI {
         group_list = new JComboBox(group_names.toArray());
         end_label = new JLabel("Your ticket has been added.");
         username_labels = new ArrayList<JLabel>();
+        amount_per_user = new ArrayList<JTextField>();
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(600, 600, 200, 600));
@@ -83,6 +84,7 @@ public class AddTicket_GUI {
                     getUserNamesFromGroup();
                     end_label.setText("Te ne mer von da");
                 }
+                TextfieldEditorForSplittingEvenly();
             }
         });
 
@@ -131,5 +133,32 @@ public class AddTicket_GUI {
             panel.add(username_labels.get(i));
         }
         System.out.println(usernames);
+        setUserAmountTextFields(usernames);
+    }
+
+    public void setUserAmountTextFields(List<String> usernames){
+        amount_per_user.clear();
+        for (int i = 0; i < usernames.size(); i++){
+            amount_per_user.add(new JTextField(8));
+            amount_per_user.get(i).setBounds(270, (i * 25) + 10, 20, 25);
+            panel.add(amount_per_user.get(i));
+        }
+        TextfieldEditorForSplittingEvenly();
+    }
+
+    public void TextfieldEditorForSplittingEvenly(){
+        if (split_evenly){
+            for (JTextField textfield: amount_per_user
+                 ) {
+                textfield.setText(input_amount.getText());
+                textfield.setEditable(false);
+            }
+        } else {
+            for (JTextField textfield: amount_per_user
+                 ) {
+                textfield.setText("");
+                textfield.setEditable(true);
+            }
+        }
     }
 }
