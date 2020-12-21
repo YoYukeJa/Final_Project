@@ -3,6 +3,8 @@ package View;
 import Controller.TicketController;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,8 +18,8 @@ public class AddTicket_GUI {
     private JPanel panel;
     private JLabel end_label;
     private List<JLabel> username_labels;
-    private JButton add_ticket_button;
-    private JTextField input_amount, ticket_type;
+    private JButton add_ticket_button, update_total;
+    private JTextField total_amount, ticket_type;
     private List<JTextField> input_amounts;
     private List<JTextField> amount_per_user;
     private Boolean split_evenly;
@@ -42,8 +44,9 @@ public class AddTicket_GUI {
         }
         frame = new JFrame();
         add_ticket_button = new JButton("Add ticket");
+        update_total = new JButton("Update total");
         splitting_evenly = new JCheckBox("Splitting evenly");
-        input_amount = new JTextField(20);
+        total_amount = new JTextField(20);
         ticket_type = new JTextField(20);
         group_list = new JComboBox(group_names.toArray());
         end_label = new JLabel("Your ticket has been added.");
@@ -56,6 +59,7 @@ public class AddTicket_GUI {
 
         splitting_evenly.setBounds(100, 100, 200, 50);
         add_ticket_button.setBounds(10, 120, 80, 25);
+        update_total.setBounds(300, 80, 80, 25);
         group_list.setSize(80, 25);
         end_label.setBounds(10, 200, 100, 25);
 
@@ -70,7 +74,32 @@ public class AddTicket_GUI {
             }
         });
 
+        update_total.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editTotalAmount();
+            }
+        });
 
+        /*for (JTextField amount_user_textfield: amount_per_user
+             ) {
+            amount_user_textfield.getDocument().addDocumentListener(new DocumentListener() {
+                @Override
+                public void insertUpdate(DocumentEvent e) {
+                    editTotalAmount();
+                }
+
+                @Override
+                public void removeUpdate(DocumentEvent e) {
+                    editTotalAmount();
+                }
+
+                @Override
+                public void changedUpdate(DocumentEvent e) {
+                    editTotalAmount();
+                }
+            });
+        }*/
 
         splitting_evenly.addItemListener(new ItemListener() {
             @Override
@@ -84,7 +113,7 @@ public class AddTicket_GUI {
                     getUserNamesFromGroup();
                     end_label.setText("Te ne mer von da");
                 }
-                TextfieldEditorForSplittingEvenly();
+                textfieldEditorForSplittingEvenly();
             }
         });
 
@@ -102,6 +131,7 @@ public class AddTicket_GUI {
 
 
         panel.add(add_ticket_button);
+        panel.add(update_total);
         panel.add(splitting_evenly);
         panel.add(end_label);
         panel.add(group_list);
@@ -143,14 +173,16 @@ public class AddTicket_GUI {
             amount_per_user.get(i).setBounds(270, (i * 25) + 10, 20, 25);
             panel.add(amount_per_user.get(i));
         }
-        TextfieldEditorForSplittingEvenly();
+        textfieldEditorForSplittingEvenly();
     }
 
-    public void TextfieldEditorForSplittingEvenly(){
+    public void textfieldEditorForSplittingEvenly(){
         if (split_evenly){
             for (JTextField textfield: amount_per_user
                  ) {
-                textfield.setText(input_amount.getText());
+                String text = total_amount.getText();
+                int total_amount_number = Integer.parseInt(text);
+                textfield.setText(String.valueOf(total_amount_number/amount_per_user.size()));
                 textfield.setEditable(false);
             }
         } else {
@@ -161,4 +193,20 @@ public class AddTicket_GUI {
             }
         }
     }
+
+    public void editTotalAmount(){
+        double total = 0.00;
+        List<Double> amounts = new ArrayList<>();
+        for (int i = 0; i < amount_per_user.size(); i++) {
+            if (amount_per_user.get(i).getText().equals("")){
+                amounts.add(0.00);
+            } else {
+                amounts.add(Double.parseDouble(amount_per_user.get(i).getText()));
+            }
+            total += amounts.get(i);
+        }
+        total_amount.setText(String.valueOf(total));
+        System.out.println(total);
+    }
+
 }
