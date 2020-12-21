@@ -1,11 +1,15 @@
 package View;
 
+
+import Controller.MainController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainPage_GUI extends JFrame {
+    private MainController mainController;
     private JFrame frame;
     private JLabel label;
     private JButton group_button, new_ticket_button, ticket_history_button, logout;
@@ -15,6 +19,8 @@ public class MainPage_GUI extends JFrame {
     }
 
     public void Initialize(){
+        mainController = new MainController();
+
         frame = new JFrame();
 
         group_button = new JButton("Groups");
