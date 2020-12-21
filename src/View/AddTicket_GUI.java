@@ -81,26 +81,6 @@ public class AddTicket_GUI {
             }
         });
 
-        /*for (JTextField amount_user_textfield: amount_per_user
-             ) {
-            amount_user_textfield.getDocument().addDocumentListener(new DocumentListener() {
-                @Override
-                public void insertUpdate(DocumentEvent e) {
-                    editTotalAmount();
-                }
-
-                @Override
-                public void removeUpdate(DocumentEvent e) {
-                    editTotalAmount();
-                }
-
-                @Override
-                public void changedUpdate(DocumentEvent e) {
-                    editTotalAmount();
-                }
-            });
-        }*/
-
         splitting_evenly.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
