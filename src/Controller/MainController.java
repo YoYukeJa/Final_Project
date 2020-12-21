@@ -11,6 +11,9 @@ public class MainController extends AbstractController{
 
     }
 
+    public Integer getCurrentUserId(){
+        return current_user;
+    }
 
     public List<Ticket> getTicketHistory(int id){
         List<Ticket> tickets = new ArrayList<>();

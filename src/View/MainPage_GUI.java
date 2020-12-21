@@ -2,11 +2,13 @@ package View;
 
 
 import Controller.MainController;
+import Model.User_related.Ticket;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class MainPage_GUI extends JFrame {
     private MainController mainController;
@@ -49,7 +51,7 @@ public class MainPage_GUI extends JFrame {
         ticket_history_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                List<Ticket> tickets =mainController.getTicketHistory(mainController.getCurrentUserId());
             }
         });
         logout.addActionListener(new ActionListener() {
