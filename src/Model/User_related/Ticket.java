@@ -61,6 +61,10 @@ public class Ticket implements ITicket {
 
     }
 
+    public String getType(){
+        return ticketType.toString();
+    }
+
     public int getId(){
         return id;
     }
@@ -69,6 +73,8 @@ public class Ticket implements ITicket {
     public double getTicketAmount(int id) {
         return amount_per_user.get(id);
     }
+
+    public List<Integer> getUserIDs() { return user_id; }
 
     public double getTotalAmount(){
         return amount_per_user.stream().mapToDouble(Double::doubleValue).sum();
