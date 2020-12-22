@@ -25,7 +25,7 @@ public class TicketHistory_GUI extends JFrame {
     public void Initialize(List<Ticket> tickets){
         mainController = new MainController();
         frame = new JFrame();
-
+        tickets = new ArrayList<>();
         close_button = new JButton("Close page");
         panel = new JPanel();
         label = new JLabel("User");
@@ -51,7 +51,7 @@ public class TicketHistory_GUI extends JFrame {
                 group_member_names.add(new ArrayList<JLabel>());
                 for (int j = 0; j < u_ids.size(); j++) {
                     temp_names.add(j, new JLabel(mainController.getUserName(u_ids.get(j))));
-                    temp_payments.add(j, new JLabel((Double.toString(tickets.get(i).getTicketAmount(u_ids.get(j))))));
+                    temp_payments.add(j, new JLabel((Double.toString(tickets.get(i).getTicketAmount(j)))));
                 }
                 group_member_names.add(i, temp_names);
                 payments.add(i, temp_payments);
