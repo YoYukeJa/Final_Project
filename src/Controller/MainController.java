@@ -26,7 +26,6 @@ public class MainController extends AbstractController{
     }
 
     public String getUserName(int id){
-        System.out.println("Voor id " + id + " vinden we: "+userDB.getUserEntry(id).getName());
         return userDB.getUserEntry(id).getName();
     }
 }

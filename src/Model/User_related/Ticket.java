@@ -71,7 +71,6 @@ public class Ticket implements ITicket {
 
     @Override
     public double getTicketAmount(int id) {
-        System.out.println("Voor id " + id + " vinden we: " + amount_per_user);
         return amount_per_user.get(id);
     }
 
