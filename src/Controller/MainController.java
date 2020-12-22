@@ -1,5 +1,6 @@
 package Controller;
 
+import Database.UserDatabase;
 import Model.User_related.Ticket;
 
 import java.util.ArrayList;
@@ -22,5 +23,10 @@ public class MainController extends AbstractController{
             tickets.add(ticketDB.getTicketEntry(ticket_id));
         }
         return tickets;
+    }
+
+    public String getUserName(int id){
+        System.out.println("Voor id " + id + " vinden we: "+userDB.getUserEntry(id).getName());
+        return userDB.getUserEntry(id).getName();
     }
 }
