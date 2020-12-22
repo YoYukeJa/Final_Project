@@ -35,7 +35,8 @@ public class TicketHistory_GUI extends JFrame {
         close_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                frame.setVisible(false);
+                frame.dispose();
             }
         });
 
