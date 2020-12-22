@@ -20,6 +20,8 @@ public class TicketHistory_GUI extends JFrame {
     List<List<JLabel>> payments, group_member_names;
     private JButton close_button;
 
+    private JLabel end_label;
+
     public TicketHistory_GUI(){}
 
     public void Initialize(List<Ticket> tickets){
@@ -32,6 +34,9 @@ public class TicketHistory_GUI extends JFrame {
         payments = new ArrayList<List<JLabel>>();
         group_member_names = new ArrayList<List<JLabel>>();
 
+        end_label = new JLabel("Your ticket has been added.");
+        label.setBounds(10, 240, 100, 25);
+
         close_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -43,6 +48,7 @@ public class TicketHistory_GUI extends JFrame {
         panel.setBorder(BorderFactory.createEmptyBorder(600, 600, 200, 600));
         panel.setLayout(null);
         panel.add(close_button);
+        panel.add(label);
         if (tickets != null) {
             for (int i = 0; i < tickets.size(); i++) {
                 List<JLabel> temp_payments = new ArrayList<>();
