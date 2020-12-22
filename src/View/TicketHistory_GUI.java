@@ -59,7 +59,7 @@ public class TicketHistory_GUI extends JFrame {
                 for (int j = 0; j < payments.get(i).size(); j++) {
                     payments.get(i).get(j).setBounds(150, (i * payments.get(i).size() * 100) + (j * 25), 40, 25);
                     group_member_names.get(i).get(j).setBounds(70, (i * group_member_names.get(i).size() * 100) + (j * 25), 40, 25);
-
+                    group_member_names.get(i).get(j).setText(temp_names.get(j).getText());
                     panel.add(payments.get(i).get(j));
                     panel.add(group_member_names.get(i).get(j));
                 }
