@@ -15,4 +15,8 @@ public abstract class AbstractController {
         groupsDB = GroupsDatabase.getInstance();
         ticketDB = TicketDatabase.getInstance();
     }
+
+    public void logOut() {
+        current_user = null;
+    }
 }
