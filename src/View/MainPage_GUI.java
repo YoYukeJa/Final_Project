@@ -42,6 +42,7 @@ public class MainPage_GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 frame.dispose();
+                mainController.logOut();
             }
         });
         new_ticket_button.addActionListener(new ActionListener() {
