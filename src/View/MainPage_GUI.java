@@ -8,10 +8,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.List;
 
 public class MainPage_GUI extends JFrame {
     private MainController mainController;
+    private JPanel panel;
     private JFrame frame;
     private JLabel label;
     private JButton group_button, new_ticket_button, ticket_history_button, logout;
@@ -38,7 +40,8 @@ public class MainPage_GUI extends JFrame {
         group_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                frame.setVisible(false);
+                frame.dispose();
             }
         });
         new_ticket_button.addActionListener(new ActionListener() {
@@ -52,6 +55,8 @@ public class MainPage_GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 List<Ticket> tickets =mainController.getTicketHistory(mainController.getCurrentUserId());
+                TicketHistory_GUI ticketHistory_gui = new TicketHistory_GUI();
+                ticketHistory_gui.Initialize(tickets);
             }
         });
         logout.addActionListener(new ActionListener() {
@@ -64,7 +69,7 @@ public class MainPage_GUI extends JFrame {
 
         label = new JLabel("You are now logged in");
 
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(600, 600, 200, 600));
         panel.setLayout(null);
         panel.add(ticket_history_button);
