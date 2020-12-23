@@ -40,9 +40,6 @@ public class MainPage_GUI extends JFrame {
         group_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
-                frame.dispose();
-                mainController.logOut();
             }
         });
         new_ticket_button.addActionListener(new ActionListener() {
@@ -65,6 +62,9 @@ public class MainPage_GUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 LoginPage_GUI loginPage_gui = new LoginPage_GUI();
                 loginPage_gui.Initialize();
+                frame.setVisible(false);
+                frame.dispose();
+                mainController.logOut();
             }
         });
 
