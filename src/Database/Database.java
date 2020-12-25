@@ -4,11 +4,12 @@ import Model.User_related.Groups;
 import Model.User_related.Ticket;
 import Model.User_related.DefaultUser;
 import User_related.Users;
+import javafx.beans.Observable;
 
 import java.util.List;
 import java.util.Vector;
 
-public abstract class Database {
+public abstract class Database implements Observable {
     //protected static Database single_instance;
 
     public Database(){
