@@ -14,14 +14,6 @@ public abstract class Users implements IUser {
     protected int password;
 
     // Constructor
-    public Users(String _name, int _id){
-        name = _name;
-        userId = _id;
-        password = "appel".hashCode();
-        groupIDList = new ArrayList<>();
-        ticketIDList = new ArrayList<>();
-    }
-
     public Users(String _name, int _id, int _password){
         name = _name;
         userId = _id;

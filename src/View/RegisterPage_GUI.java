@@ -42,7 +42,7 @@ public class RegisterPage_GUI extends JFrame {
 
                 System.out.println(user + ", " + password);
 
-                if (controller.RegisterNewUser(user)){
+                if (controller.RegisterNewUser(user, password.hashCode())){
                     successLabel.setText("Successful registration");
                     MainPage_GUI mainPage_gui = new MainPage_GUI();
                     mainPage_gui.Initialize();

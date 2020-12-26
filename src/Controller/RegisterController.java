@@ -6,9 +6,9 @@ public class RegisterController extends AbstractController {
 
     }
 
-    public Boolean RegisterNewUser(String _name){
+    public Boolean RegisterNewUser(String _name, int _hash){
         if (!_name.isBlank()) {
-            userDB.addEntry(_name);
+            userDB.addEntry(_name, _hash);
             return true;
         }
         return false;

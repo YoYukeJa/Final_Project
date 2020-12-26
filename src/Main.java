@@ -22,11 +22,11 @@ public class Main {
         GroupsDatabase groupdb = GroupsDatabase.getInstance();
         TicketDatabase ticketdb = TicketDatabase.getInstance();
 
-        userdb.addEntry("Alice");
-        userdb.addEntry("Mina");
-        userdb.addEntry("Henry");
-        userdb.addEntry("Alois");
-        userdb.addEntry("Minx");
+        userdb.addEntry("Alice", "appel".hashCode());
+        userdb.addEntry("Mina", "appel".hashCode());
+        userdb.addEntry("Henry", "appel".hashCode());
+        userdb.addEntry("Alois", "appel".hashCode());
+        userdb.addEntry("Minx", "appel".hashCode());
 
         groupdb.addEntry("testgroep");
         Groups g = groupdb.getGroupEntry(0);

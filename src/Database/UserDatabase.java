@@ -22,9 +22,9 @@ public class UserDatabase extends Database implements IUserDatabase {
     }
 
     @Override
-    public void addEntry(String _name) {
+    public void addEntry(String _name, int hash) {
         int id = generateAuthenticId(usersDB);
-        Users u  = new UserFactory().create("default", _name, id);
+        Users u  = new UserFactory().create("default", _name, id, hash);
         usersDB.add(u);
     }
 

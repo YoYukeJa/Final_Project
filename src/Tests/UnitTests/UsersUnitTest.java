@@ -14,10 +14,10 @@ public class UsersUnitTest {
     Model.User_related.Users user1, user2, user3, user4;
     @Before
     public void Initialize(){
-        user1 = new DefaultUser("Seraphine", 234);
-        user2 = new DefaultUser("Jos", 1);
-        user3 = new DefaultUser("Merel", 3456);
-        user4 = new DefaultUser("Alex", 0);
+        user1 = new DefaultUser("Seraphine", 234, "appel".hashCode());
+        user2 = new DefaultUser("Jos", 1, "appel".hashCode());
+        user3 = new DefaultUser("Merel", 3456, "appel".hashCode());
+        user4 = new DefaultUser("Alex", 0, "appel".hashCode());
     }
 
     @Test
