@@ -10,8 +10,10 @@ public class LoginController extends AbstractController{
     public Boolean checkIfLoginIsCorrect(String _username, String _password){
         for (int i = 0; i < userDB.getLengthOfDatabase(); i++) {
             if (userDB.getUserEntry(i).getName().equals(_username)){ //TODO: Password check nog toevoegen
-                current_user = i;
-                return true;
+                if (userDB.getUserEntry(i).checkIfPasswordCorrect(_password.hashCode())) {
+                    current_user = i;
+                    return true;
+                }
             }
         }
         return false;

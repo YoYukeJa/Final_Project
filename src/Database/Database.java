@@ -3,7 +3,7 @@ package Database;
 import Model.User_related.Groups;
 import Model.User_related.Ticket;
 import Model.User_related.DefaultUser;
-import User_related.Users;
+import Model.User_related.Users;
 
 import java.util.List;
 import java.util.Vector;

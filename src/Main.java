@@ -77,6 +77,11 @@ public class Main {
         System.out.println(userdb.getUserEntry(1).getTickets());
         //Gives the total amount of a ticket in Double form.
         System.out.println(ticketdb.getTicketEntry(0).getTotalAmount());
+
+        String temp = "appel";
+        System.out.println(temp.hashCode());
+
+        System.out.println("appel".hashCode());
     }
 
 }

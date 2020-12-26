@@ -1,4 +1,4 @@
-package User_related;
+package Model.User_related;
 
 import Model.User_related.Interfaces.IUser;
 
@@ -11,11 +11,21 @@ public abstract class Users implements IUser {
     protected List<Integer> groupIDList;
     protected List<Integer> ticketIDList;
     protected String name;
+    protected int password;
 
     // Constructor
     public Users(String _name, int _id){
         name = _name;
         userId = _id;
+        password = "appel".hashCode();
+        groupIDList = new ArrayList<>();
+        ticketIDList = new ArrayList<>();
+    }
+
+    public Users(String _name, int _id, int _password){
+        name = _name;
+        userId = _id;
+        password = _password;
         groupIDList = new ArrayList<>();
         ticketIDList = new ArrayList<>();
     }
@@ -57,5 +67,10 @@ public abstract class Users implements IUser {
 
     public List<Integer> getTickets(){
         return ticketIDList;
+    }
+
+    public Boolean checkIfPasswordCorrect(int input){
+        if (input ==password) return true;
+        else return false;
     }
 }
