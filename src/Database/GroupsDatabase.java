@@ -4,7 +4,7 @@ import Database.Interface.IGroupsDatabase;
 import Model.Factories.GroupFactory;
 import Model.User_related.Groups;
 import Model.User_related.NormalGroup;
-import User_related.Users;
+import Model.User_related.Users;
 
 import java.util.List;
 import java.util.Vector;

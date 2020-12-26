@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class UsersUnitTest {
-    User_related.Users user1, user2, user3, user4;
+    Model.User_related.Users user1, user2, user3, user4;
     @Before
     public void Initialize(){
         user1 = new DefaultUser("Seraphine", 234);

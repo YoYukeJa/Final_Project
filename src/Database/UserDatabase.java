@@ -2,7 +2,7 @@ package Database;
 
 import Database.Interface.IUserDatabase;
 import Model.Factories.UserFactory;
-import User_related.Users;
+import Model.User_related.Users;
 
 import java.util.Vector;
 

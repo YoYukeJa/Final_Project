@@ -15,7 +15,7 @@ public class DefaultFactoryProvider {
         return null;
     }
 
-    private User_related.Users getUserFactory(String object_choice, String _name, int _id){
+    private Model.User_related.Users getUserFactory(String object_choice, String _name, int _id){
         return new UserFactory().create(object_choice, _name, _id);
     }
     private Groups getGroupsFactory(String object_choice, String _name, int _id){

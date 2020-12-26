@@ -1,6 +1,6 @@
 package Database.Interface;
 
-import User_related.Users;
+import Model.User_related.Users;
 
 public interface IUserDatabase extends IDefaultDatabase{
     void editUserEntry(Users u);

@@ -1,9 +1,9 @@
 package Model.Factories;
 
 import Model.User_related.DefaultUser;
-import User_related.Users;
+import Model.User_related.Users;
 
-public class UserFactory implements AbstractFactory<User_related.Users> {
+public class UserFactory implements AbstractFactory<Users> {
     @Override
     public Users create(String choice, String _name, int _id) {
         if ("default".equalsIgnoreCase(choice)){

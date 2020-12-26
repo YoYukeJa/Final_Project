@@ -1,7 +1,7 @@
 package Database.Interface;
 
 import Model.User_related.Groups;
-import User_related.Users;
+import Model.User_related.Users;
 
 import java.util.List;
 
