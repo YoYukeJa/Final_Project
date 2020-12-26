@@ -7,8 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class UsersUnitTest {
     Model.User_related.Users user1, user2, user3, user4;
@@ -151,6 +150,19 @@ public class UsersUnitTest {
         assertEquals(1, user2.getUserId());
         assertEquals(3456, user3.getUserId());
         assertEquals(0, user4.getUserId());
+    }
+
+    @Test
+    public void userPasswordCheckTest(){
+        assertFalse("User1 password does not equal Pommes", user1.checkIfPasswordCorrect("Pommes".hashCode()));
+        assertFalse("User2 password does not equal Pommes", user2.checkIfPasswordCorrect("woppa".hashCode()));
+        assertFalse("User3 password does not equal Pommes", user3.checkIfPasswordCorrect("1245673".hashCode()));
+        assertFalse("User4 password does not equal Pommes", user4.checkIfPasswordCorrect("Orange234".hashCode()));
+
+        assertTrue("User1 password does equal appel", user1.checkIfPasswordCorrect("appel".hashCode()));
+        assertTrue("User2 password does equal appel", user2.checkIfPasswordCorrect("appel".hashCode()));
+        assertTrue("User3 password does equal appel", user3.checkIfPasswordCorrect("appel".hashCode()));
+        assertTrue("User4 password does equal appel", user4.checkIfPasswordCorrect("appel".hashCode()));
     }
 
 }
