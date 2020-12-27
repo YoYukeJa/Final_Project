@@ -57,6 +57,13 @@ public class MainPage_GUI extends JFrame {
                 ticketHistory_gui.Initialize(tickets);
             }
         });
+        group_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GroupPage_GUI groupPage_gui = new GroupPage_GUI();
+                groupPage_gui.Initialize();
+            }
+        });
         logout.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
