@@ -1,5 +1,6 @@
 package View;
 
+import Controller.GroupController;
 import Controller.MainController;
 
 import javax.swing.*;
