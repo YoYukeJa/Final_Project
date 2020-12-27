@@ -49,6 +49,8 @@ public class RegisterPage_GUI extends JFrame {
                     //MainPage_GUI mainPage_gui = new MainPage_GUI();
                     //mainPage_gui.setVisible(true);
                     //this.setVisible(false);
+                    frame.setVisible(false);
+                    frame.dispose();
                 } else {
                     failureLabel.setText("Failed to create account.");
                 }

@@ -53,6 +53,8 @@ public class LoginPage_GUI extends JFrame {
                     //MainPage_GUI mainPage_gui = new MainPage_GUI();
                     //mainPage_gui.setVisible(true);
                     //this.setVisible(false);
+                    frame.setVisible(false);
+                    frame.dispose();
                 } else {
                     successLabel.setText("");
                     failureLabel.setText("Failed to login. Incorrect Password or username entered.");
