@@ -25,10 +25,11 @@ public class GroupsDatabase extends Database implements IGroupsDatabase {
     }
 
     @Override
-    public void addEntry(String _name) {
+    public Integer addEntry(String _name) {
         int id = generateAuthenticId(groupDB);
         Groups g = new GroupFactory().create("normal", _name, id);
         this.groupDB.add(g);
+        return id;
     }
 
     @Override

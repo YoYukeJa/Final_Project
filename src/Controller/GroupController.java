@@ -42,4 +42,15 @@ public class GroupController extends AbstractController {
         }
         return names;
     }
+
+    public Boolean addExistingGroupToUser(String _name){
+        //TODO: IMPLEMENT THIS SHIT
+        groupsDB.addMemberToGroup();
+        return false;
+    }
+
+    public void createNewGroup(String _name){
+        int id = groupsDB.addEntry(_name);
+        groupsDB.addMemberToGroup(id, userDB.getUserEntry(current_user));
+    }
 }
