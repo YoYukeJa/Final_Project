@@ -32,4 +32,14 @@ public class GroupController extends AbstractController {
         }
         return total;
     }
+
+    public List<String> getGroupNamesFromCurrentUser() {
+        List<Integer> group_ids = userDB.getUserEntry(current_user).getGroupIDList();
+        List<String> names =  new ArrayList<>();
+        for (Integer group_id: group_ids
+             ) {
+            names.add(groupsDB.getGroupEntry(group_id).getName());
+        }
+        return names;
+    }
 }
