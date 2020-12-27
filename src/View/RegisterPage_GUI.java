@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class RegisterPage_GUI extends JFrame {
+public class RegisterPage_GUI extends JFrame implements IDefaultPage_GUI{
     private JFrame frame;
     private JPanel panel;
     private JLabel userLabel, passwordLabel, successLabel, failureLabel;
@@ -20,7 +20,7 @@ public class RegisterPage_GUI extends JFrame {
 
     }
 
-
+    @Override
     public void Initialize(){
         controller = new RegisterController();
         frame = new JFrame();

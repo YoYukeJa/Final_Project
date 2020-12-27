@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginPage_GUI extends JFrame {
+public class LoginPage_GUI extends JFrame implements IDefaultPage_GUI{
     private JFrame frame;
     private JPanel panel;
     private JLabel userLabel, passwordLabel, successLabel, failureLabel;
@@ -23,6 +23,7 @@ public class LoginPage_GUI extends JFrame {
         new LoginPage_GUI();
     }
 
+    @Override
     public void Initialize() {controller = new LoginController();
         frame = new JFrame();
         panel = new JPanel();

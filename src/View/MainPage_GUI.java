@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.util.List;
 
-public class MainPage_GUI extends JFrame {
+public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
     private MainController mainController;
     private JPanel panel;
     private JFrame frame;
@@ -22,6 +22,7 @@ public class MainPage_GUI extends JFrame {
     public MainPage_GUI(){
     }
 
+    @Override
     public void Initialize(){
         mainController = new MainController();
 

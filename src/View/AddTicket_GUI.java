@@ -13,7 +13,7 @@ import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTicket_GUI {
+public class AddTicket_GUI implements IDefaultPage_GUI{
     private JFrame frame;
     private JPanel panel;
     private JLabel end_label;
@@ -33,6 +33,7 @@ public class AddTicket_GUI {
     public AddTicket_GUI(){
     }
 
+    @Override
     public void Initialize() {
         System.out.println();
         ticketController = new TicketController();

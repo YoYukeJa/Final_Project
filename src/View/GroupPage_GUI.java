@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupPage_GUI extends JFrame {
+public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
 
     private GroupController controller;
     private JFrame frame;
@@ -28,6 +28,7 @@ public class GroupPage_GUI extends JFrame {
 
     }
 
+    @Override
     public void Initialize() {
         current_group_id = 0;
         controller = new GroupController();
@@ -49,6 +50,7 @@ public class GroupPage_GUI extends JFrame {
             group_member_names.get(i).setBounds(100, 20 + (i * 25), 80, 25);
             panel.add(group_member_names.get(i));
         }
+
 
 
 

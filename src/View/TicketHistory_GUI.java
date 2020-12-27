@@ -11,7 +11,7 @@ import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TicketHistory_GUI extends JFrame {
+public class TicketHistory_GUI extends JFrame implements IDefaultPage_GUI {
     private MainController mainController;
     private JFrame frame;
     private JPanel panel;
@@ -26,6 +26,7 @@ public class TicketHistory_GUI extends JFrame {
     public TicketHistory_GUI(){
     }
 
+    @Override
     public void Initialize(){
         mainController = new MainController();
         frame = new JFrame();
