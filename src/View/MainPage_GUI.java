@@ -52,9 +52,8 @@ public class MainPage_GUI extends JFrame {
         ticket_history_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<Ticket> tickets =mainController.getTicketHistory(mainController.getCurrentUserId());
                 TicketHistory_GUI ticketHistory_gui = new TicketHistory_GUI();
-                ticketHistory_gui.Initialize(tickets);
+                ticketHistory_gui.Initialize();
             }
         });
         group_button.addActionListener(new ActionListener() {

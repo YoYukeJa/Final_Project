@@ -16,19 +16,22 @@ public class TicketHistory_GUI extends JFrame {
     private JFrame frame;
     private JPanel panel;
     private JLabel label;
-    List<JLabel> ticket_types;
-    List<List<JLabel>> payments, group_member_names;
+    private List<Ticket> tickets;
+    private List<JLabel> ticket_types;
+    private List<List<JLabel>> payments, group_member_names;
     private JButton close_button;
 
     private JLabel end_label;
 
-    public TicketHistory_GUI(){}
+    public TicketHistory_GUI(){
+    }
 
-    public void Initialize(List<Ticket> tickets){
+    public void Initialize(){
         mainController = new MainController();
         frame = new JFrame();
-        tickets = new ArrayList<>();
         close_button = new JButton("Close page");
+        tickets = mainController.getTicketHistory(mainController.getCurrentUserId());
+        ticket_types = new ArrayList<>();
         panel = new JPanel();
         label = new JLabel("User");
         payments = new ArrayList<List<JLabel>>();
@@ -69,7 +72,7 @@ public class TicketHistory_GUI extends JFrame {
                     panel.add(payments.get(i).get(j));
                     panel.add(group_member_names.get(i).get(j));
                 }
-
+                System.out.println(tickets.get(i).getType());
                 ticket_types.add(new JLabel(tickets.get(i).getType()));
                 panel.add(ticket_types.get(i));
             }
