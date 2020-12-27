@@ -35,7 +35,8 @@ public class GroupPage_GUI extends JFrame {
         frame = new JFrame();
         close_button = new JButton("Close page");
         panel = new JPanel();
-        total_amount_label = new JLabel(controller.getTotalAmountFromGroup(current_group_id).toString());
+        total_amount = controller.getTotalAmountFromGroup(current_group_id);
+        total_amount_label = new JLabel((Double.toString(total_amount)));
 
         group_names = controller.getGroupNamesFromCurrentUser();
         group_list = new JComboBox(group_names.toArray());
