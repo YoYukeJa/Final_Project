@@ -8,8 +8,7 @@ import java.util.List;
 public abstract class Users implements IUser {
     // Class variables
     protected int userId;
-    protected List<Integer> groupIDList;
-    protected List<Integer> ticketIDList;
+    protected List<Integer> groupIDList, ticketIDList, friendIDList;
     protected String name;
     protected int password;
 
@@ -20,11 +19,7 @@ public abstract class Users implements IUser {
         password = _password;
         groupIDList = new ArrayList<>();
         ticketIDList = new ArrayList<>();
-    }
-
-    @Override
-    public void deleteUser() {
-
+        friendIDList = new ArrayList<>();
     }
 
     @Override
@@ -55,6 +50,16 @@ public abstract class Users implements IUser {
     @Override
     public String getName(){
         return name;
+    }
+
+    @Override
+    public void addFriend(int id) {
+        friendIDList.add(id);
+    }
+
+    @Override
+    public void removeFriend(int id) {
+        friendIDList.remove(id);
     }
 
     public List<Integer> getTickets(){
