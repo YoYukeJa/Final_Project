@@ -62,6 +62,11 @@ public abstract class Users implements IUser {
         friendIDList.remove(id);
     }
 
+    @Override
+    public List<Integer> getFriendList() {
+        return friendIDList;
+    }
+
     public List<Integer> getTickets(){
         return ticketIDList;
     }

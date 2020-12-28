@@ -11,4 +11,5 @@ public interface IUser {
     String getName();
     void addFriend(int id);
     void removeFriend(int id);
+    List<Integer> getFriendList();
 }
