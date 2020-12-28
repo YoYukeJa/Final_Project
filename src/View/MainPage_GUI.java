@@ -16,7 +16,7 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
     private JPanel panel;
     private JFrame frame;
     private JLabel label;
-    private JButton group_button, new_ticket_button, ticket_history_button, logout, add_friend;
+    private JButton group_button, new_ticket_button, ticket_history_button, logout, add_friend, create_group;
     private JTextField friend_name;
 
 
@@ -35,6 +35,7 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
         logout = new JButton("Log out");
         friend_name = new JTextField(20);
         add_friend = new JButton("Add friend!");
+        create_group = new JButton("Create a group");
         label = new JLabel("You are now logged in");
 
         label.setBounds(10,10, 300, 25);
@@ -43,7 +44,17 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
         group_button.setBounds(10, 90, 80, 25);
         new_ticket_button.setBounds(100, 90, 80, 25);
         ticket_history_button.setBounds(190, 90, 80, 25);
+        create_group.setBounds(280, 90, 80, 25);
         logout.setBounds(10, 130, 80, 25);
+
+        create_group.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddGroupPage_GUI addGroupPage_gui = new AddGroupPage_GUI();
+                addGroupPage_gui.Initialize();
+            }
+        });
+
         add_friend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -100,6 +111,7 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
         panel.add(label);
         panel.add(add_friend);
         panel.add(friend_name);
+        panel.add(create_group);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
