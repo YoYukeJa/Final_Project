@@ -35,6 +35,7 @@ public class MainController extends AbstractController{
             if (userDB.getUserEntry(i).getName().equals(_name)){
                 userDB.getUserEntry(current_user).addFriend(i);
                 check = true;
+                System.out.println("Added user " +_name);
             }
         }
         return check;

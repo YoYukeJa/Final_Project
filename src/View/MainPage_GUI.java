@@ -16,7 +16,8 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
     private JPanel panel;
     private JFrame frame;
     private JLabel label;
-    private JButton group_button, new_ticket_button, ticket_history_button, logout;
+    private JButton group_button, new_ticket_button, ticket_history_button, logout, add_friend;
+    private JTextField friend_name;
 
 
     public MainPage_GUI(){
@@ -32,15 +33,27 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
         new_ticket_button = new JButton("Add ticket");
         ticket_history_button = new JButton("See all tickets");
         logout = new JButton("Log out");
+        friend_name = new JTextField(20);
+        add_friend = new JButton("Add friend!");
+        label = new JLabel("You are now logged in");
 
-
-        group_button.setBounds(10, 80, 80, 25);
-        new_ticket_button.setBounds(100, 80, 80, 25);
-        ticket_history_button.setBounds(190, 80, 80, 25);
-        logout.setBounds(10, 120, 80, 25);
-        group_button.addActionListener(new ActionListener() {
+        label.setBounds(10,10, 300, 25);
+        friend_name.setBounds(10, 40, 100, 25);
+        add_friend.setBounds(130, 40, 150, 25);
+        group_button.setBounds(10, 90, 80, 25);
+        new_ticket_button.setBounds(100, 90, 80, 25);
+        ticket_history_button.setBounds(190, 90, 80, 25);
+        logout.setBounds(10, 130, 80, 25);
+        add_friend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                boolean check = mainController.addFriend(friend_name.getText());
+                if (check){
+                    label.setText("Friend " + friend_name.getText() + " added to friendlist!");
+                    friend_name.setText("");
+                } else {
+                    label.setText("Unable to add friend, user might not exist or name was spelled wrong.");
+                }
             }
         });
         new_ticket_button.addActionListener(new ActionListener() {
@@ -75,7 +88,7 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
             }
         });
 
-        label = new JLabel("You are now logged in");
+
 
         panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(600, 600, 200, 600));
@@ -85,6 +98,8 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
         panel.add(group_button);
         panel.add(logout);
         panel.add(label);
+        panel.add(add_friend);
+        panel.add(friend_name);
 
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
