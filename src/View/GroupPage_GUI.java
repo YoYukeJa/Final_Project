@@ -30,9 +30,9 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
 
     @Override
     public void Initialize() {
-        current_group_id = 0;
         controller = new GroupController();
         group_ids = controller.getGroupsFromUser();
+        current_group_id = group_ids.get(0);
         frame = new JFrame();
         close_button = new JButton("Close page");
         panel = new JPanel();
