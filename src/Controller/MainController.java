@@ -28,4 +28,15 @@ public class MainController extends AbstractController{
     public String getUserName(int id){
         return userDB.getUserEntry(id).getName();
     }
+
+    public Boolean addFriend(String _name){
+        boolean check = false;
+        for (int i = 0; i < userDB.getLengthOfDatabase(); i++){
+            if (userDB.getUserEntry(i).getName().equals(_name)){
+                userDB.getUserEntry(current_user).addFriend(i);
+                check = true;
+            }
+        }
+        return check;
+    }
 }
