@@ -43,9 +43,8 @@ public class GroupController extends AbstractController {
         return names;
     }
 
-    public Boolean addExistingGroupToUser(String _name){
-        //TODO: IMPLEMENT THIS SHIT
-        groupsDB.addMemberToGroup();
+    public Boolean addExistingGroupToUser(int user_id, int current_group){
+        groupsDB.addMemberToGroup(current_group, userDB.getUserEntry(user_id));
         return false;
     }
 

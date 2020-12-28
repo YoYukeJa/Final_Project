@@ -58,4 +58,6 @@ public class GroupsDatabase extends Database implements IGroupsDatabase {
         g.addPayment(ticket_id);
         editGroupEntry(g);
     }
+
+
 }
