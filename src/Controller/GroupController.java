@@ -43,6 +43,16 @@ public class GroupController extends AbstractController {
         return names;
     }
 
+    public List<String> getFriendList(){
+        List<Integer> friend_ids = userDB.getUserEntry(current_user).getFriendList();
+        List<String> names = new ArrayList<>();
+        for (Integer id: friend_ids
+             ) {
+            names.add(userDB.getUserEntry(id).getName());
+        }
+        return names;
+    }
+
     public Boolean addExistingGroupToUser(int user_id, int current_group){
         groupsDB.addMemberToGroup(current_group, userDB.getUserEntry(user_id));
         return false;
