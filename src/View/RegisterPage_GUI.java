@@ -11,7 +11,7 @@ public class RegisterPage_GUI extends JFrame implements IDefaultPage_GUI{
     private JFrame frame;
     private JPanel panel;
     private JLabel userLabel, passwordLabel, successLabel, failureLabel;
-    private JButton  registerButton;
+    private JButton  registerButton, cancelbutton;
     private JTextField userText;
     private JPasswordField passwordText;
     private RegisterController controller;
@@ -30,10 +30,12 @@ public class RegisterPage_GUI extends JFrame implements IDefaultPage_GUI{
         successLabel = new JLabel("");
         failureLabel = new JLabel("");
         registerButton = new JButton("Register");
+        cancelbutton = new JButton("Cancel");
         userText = new JTextField(20);
         passwordText = new JPasswordField();
 
-        registerButton.setBounds(10, 80, 80, 25);
+        registerButton.setBounds(10, 80, 100, 25);
+        cancelbutton.setBounds(130, 80, 100, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,6 +59,16 @@ public class RegisterPage_GUI extends JFrame implements IDefaultPage_GUI{
             }
         });
 
+        cancelbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LoginPage_GUI loginPage_gui = new LoginPage_GUI();
+                loginPage_gui.Initialize();
+                frame.setVisible(false);
+                frame.dispose();
+            }
+        });
+
         userLabel.setBounds(10, 20, 80, 25);
         passwordLabel.setBounds(10, 50, 80, 25);
         successLabel.setBounds(10, 110, 300, 25);
@@ -72,6 +84,7 @@ public class RegisterPage_GUI extends JFrame implements IDefaultPage_GUI{
         panel.add(successLabel);
         panel.add(failureLabel);
         panel.add(registerButton);
+        panel.add(cancelbutton);
         panel.add(userText);
         panel.add(passwordText);
 
