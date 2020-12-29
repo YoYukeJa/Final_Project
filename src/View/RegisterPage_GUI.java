@@ -48,9 +48,6 @@ public class RegisterPage_GUI extends JFrame implements IDefaultPage_GUI{
                     successLabel.setText("Successful registration");
                     MainPage_GUI mainPage_gui = new MainPage_GUI();
                     mainPage_gui.Initialize();
-                    //MainPage_GUI mainPage_gui = new MainPage_GUI();
-                    //mainPage_gui.setVisible(true);
-                    //this.setVisible(false);
                     frame.setVisible(false);
                     frame.dispose();
                 } else {
