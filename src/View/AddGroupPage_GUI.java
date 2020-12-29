@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AddGroupPage_GUI extends JFrame implements IDefaultPage_GUI{
     private GroupController controller;
-    private JFrame frame;
+    private JFrame frame, pop_up_frame;
     private JPanel panel;
     private JLabel label, name_label;
     private List<JLabel> username_labels;
@@ -28,6 +28,7 @@ public class AddGroupPage_GUI extends JFrame implements IDefaultPage_GUI{
     public void Initialize() {
         controller = new GroupController();
         frame = new JFrame();
+        pop_up_frame = new JFrame();
         close_button = new JButton("Close page"); //TODO: Add pop-up for confirmation about closing without saving
         save_button = new JButton("Create group");
         panel = new JPanel();
@@ -45,6 +46,9 @@ public class AddGroupPage_GUI extends JFrame implements IDefaultPage_GUI{
         save_button.setBounds(10, 200, 80, 25);
         close_button.setBounds(100, 200, 80, 25);
 
+        pop_up_frame.setSize(300, 300);
+        pop_up_frame.setLayout(null);
+        pop_up_frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         add_friend_button.addActionListener(new ActionListener() {
             @Override
@@ -63,9 +67,11 @@ public class AddGroupPage_GUI extends JFrame implements IDefaultPage_GUI{
         close_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: Implement pop-up screen!!
-                frame.setVisible(false);
-                frame.dispose();
+                int answer = JOptionPane.showConfirmDialog(pop_up_frame, "Selecting yes will discard all progress.", "Select an option", JOptionPane.YES_NO_OPTION);
+                if (answer==JOptionPane.YES_OPTION) {
+                    frame.setVisible(false);
+                    frame.dispose();
+                }
             }
         });
 

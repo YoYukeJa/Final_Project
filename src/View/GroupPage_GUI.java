@@ -51,9 +51,6 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
             panel.add(group_member_names.get(i));
         }
 
-
-
-
         group_list.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,6 +71,8 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
             }
         });
 
+        panel.setBorder(BorderFactory.createEmptyBorder(600, 600, 200, 600));
+        panel.setLayout(null);
         panel.add(group_list);
         panel.add(close_button);
         panel.add(total_amount_label);
