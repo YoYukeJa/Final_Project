@@ -67,6 +67,8 @@ public class LoginPage_GUI extends JFrame implements IDefaultPage_GUI{
             public void actionPerformed(ActionEvent e) {
                 RegisterPage_GUI registerPage = new RegisterPage_GUI();
                 registerPage.Initialize();
+                frame.setVisible(false);
+                frame.dispose();
             }
         });
 
