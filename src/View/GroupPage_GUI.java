@@ -44,7 +44,8 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         group_list.setSize(80, 25);
 
         group_member_names = new ArrayList<JLabel>();
-        group_members = controller.getGroupMembers(group_ids.get(current_group_id));
+
+        group_members = controller.getGroupMembers(current_group_id);
         for (int i = 0; i < controller.getGroupMembers(current_group_id).size(); i++) {
             group_member_names.add(new JLabel(group_members.get(i)));
             group_member_names.get(i).setBounds(100, 20 + (i * 25), 80, 25);
