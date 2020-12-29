@@ -52,6 +52,8 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
             public void actionPerformed(ActionEvent e) {
                 AddGroupPage_GUI addGroupPage_gui = new AddGroupPage_GUI();
                 addGroupPage_gui.Initialize();
+                frame.setVisible(false);
+                frame.dispose();
             }
         });
 
@@ -86,6 +88,8 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
             public void actionPerformed(ActionEvent e) {
                 GroupPage_GUI groupPage_gui = new GroupPage_GUI();
                 groupPage_gui.Initialize();
+                frame.setVisible(false);
+                frame.dispose();
             }
         });
         logout.addActionListener(new ActionListener() {
