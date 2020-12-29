@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.User_related.Users;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,13 +55,31 @@ public class GroupController extends AbstractController {
         return names;
     }
 
-    public Boolean addExistingGroupToUser(int user_id, int current_group){
-        groupsDB.addMemberToGroup(current_group, userDB.getUserEntry(user_id));
+    public Boolean addExistingGroupToUser(String username, String groupname){
+        List<Integer> current_user_groups = userDB.getUserEntry(current_user).getGroupIDList();
+        Integer current_group = 0;
+        for (Integer group_id: current_user_groups
+             ) {
+            if (groupsDB.getGroupEntry(group_id).getName().equals(groupname)){
+                current_group = group_id;
+            } else { return false; }
+        }
+
+        for (int i = 0; i < userDB.getLengthOfDatabase(); i++){
+            if (userDB.getUserEntry(i).getName().equals(username)){
+                groupsDB.addMemberToGroup(current_group, userDB.getUserEntry(i));
+                Users user = userDB.getUserEntry(i);
+                user.addGroup(current_group);
+                userDB.editUserEntry(user);
+                return true;
+            }
+        }
         return false;
     }
 
     public void createNewGroup(String _name){
         int id = groupsDB.addEntry(_name);
         groupsDB.addMemberToGroup(id, userDB.getUserEntry(current_user));
+        userDB.getUserEntry(current_user).addGroup(id);
     }
 }
