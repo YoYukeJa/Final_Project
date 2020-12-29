@@ -44,7 +44,7 @@ public class AddGroupPage_GUI extends JFrame implements IDefaultPage_GUI{
         add_friend_button = new JButton("Add friend");
 
         name_label.setBounds(10, 10, 120, 25);
-        group_name.setBounds(150, 10, 100, 25);
+        group_name.setBounds(150, 100, 80, 25);
         friend_list.setBounds(100, 150, 100, 25);
         add_friend_button.setBounds(200, 150, 100, 25);
         save_button.setBounds(10, 200, 80, 25);
