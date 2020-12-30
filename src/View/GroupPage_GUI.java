@@ -66,6 +66,7 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         friend_label.setBounds(250, 150, 80, 25);
         friends_to_add.setBounds(350, 150, 80, 25);
         add_friend_button.setBounds(500, 150, 80, 25);
+        close_button.setBounds(10, 150, 80, 25);
 
         add_friend_button.addActionListener(new ActionListener() {
             @Override
@@ -75,11 +76,7 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
                 //panel.add(group_member_names.get(group_member_names.size()-1));
                 controller.addExistingGroupToUser(friends_to_add.getSelectedItem().toString(), group_list.getSelectedItem().toString());
                 friends_to_add.removeItemAt(friends_to_add.getSelectedIndex());
-                getMembersOfGroup();
-                System.out.println(controller.getGroupMembers(current_group_id));
-                panel.revalidate();
-                panel.repaint();
-                panel.updateUI();
+                pageUIUpdate();
             }
         });
 
@@ -87,11 +84,16 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(group_list.getSelectedItem());
+                for (JLabel label: group_member_names
+                     ) {
+                    label.setText("");
+                }
                 for (int i = 0; i < group_names.size(); i++) {
                     if (group_list.getSelectedItem().equals(group_names.get(i))){
                         current_group_id = group_ids.get(i);
                     }
                 }
+                pageUIUpdate();
             }
         });
 
@@ -100,10 +102,21 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
                 frame.dispose();
+                MainPage_GUI mainPage_gui = new MainPage_GUI();
+                mainPage_gui.Initialize();
             }
         });
 
         createFrame();
+    }
+
+    public void pageUIUpdate() {
+        panel.invalidate();
+        getMembersOfGroup();
+        System.out.println(controller.getGroupMembers(current_group_id));
+        panel.revalidate();
+        panel.repaint();
+        panel.updateUI();
     }
 
     public void createFrame() {

@@ -82,6 +82,8 @@ public class AddGroupPage_GUI extends JFrame implements IDefaultPage_GUI{
                     frame.dispose();
                     pop_up_frame.setVisible(false);
                     pop_up_frame.dispose();
+                    MainPage_GUI mainPage_gui = new MainPage_GUI();
+                    mainPage_gui.Initialize();
                 }
             }
         });
