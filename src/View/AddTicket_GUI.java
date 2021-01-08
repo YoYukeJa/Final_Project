@@ -104,9 +104,20 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
         group_list.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                for (JLabel label: username_labels
+                ) {
+                    label.setText("");
+                }
+                for (JTextField amount: amount_per_user
+                ){
+                    amount.setVisible(false);
+                    panel.remove(amount);
+                }
+                amount_per_user.clear();
                 System.out.println(group_list.getSelectedItem());
                 getGroupID(groupids, group_names);
-                getUserNamesFromGroup();
+                UpdateUI();
             }
         });
 
@@ -124,8 +135,17 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Main Page");
-        frame.pack();
+        frame.setSize(300, 300);
+        //frame.pack();
         frame.setVisible(true);
+    }
+
+    private void UpdateUI() {
+        panel.invalidate();
+        getUserNamesFromGroup();
+        panel.revalidate();
+        panel.repaint();
+        panel.updateUI();
     }
 
     public void getGroupID(List<Integer> groupids, List<String> group_names) {
@@ -138,6 +158,7 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
     }
 
     public void getUserNamesFromGroup(){
+        frame.invalidate();
         username_labels.clear();
         List<String> usernames = ticketController.getUsernamesFromGroup(groupID);
         for (int i = 0; i < usernames.size(); i++) {
@@ -148,6 +169,8 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
         }
         System.out.println(usernames);
         setUserAmountTextFields(usernames);
+        frame.revalidate();
+        frame.repaint();
     }
 
     public void setUserAmountTextFields(List<String> usernames){
