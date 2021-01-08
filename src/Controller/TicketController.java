@@ -32,7 +32,31 @@ public class TicketController extends AbstractController{
         return usernames;
     }
 
-    public boolean createNewTicket(Boolean split_evenly, List<Double> payment_amounts, int ticket_type, int group_id){
+    public boolean createNewTicket(Boolean split_evenly, List<Double> payment_amounts, String _ticket_type, int group_id){
+        int ticket_type = 0; //TODO dynamic maken met _ticket_type
+        switch (_ticket_type.toLowerCase()){
+            case "movieticket":
+                ticket_type = 0;
+                break;
+            case "trafficticket":
+                ticket_type = 1;
+                break;
+            case "drinks":
+                ticket_type = 2;
+                break;
+            case "food":
+                ticket_type = 3;
+                break;
+            case "supermarket":
+                ticket_type = 4;
+                break;
+            case "housing":
+                ticket_type = 5;
+                break;
+            case "publictransport":
+                ticket_type = 6;
+                break;
+        }
         ticketDB.addTicketEntry(group_id, groupsDB.getUsersFromGroup(group_id), payment_amounts, split_evenly, ticket_type);
         return false;
     }

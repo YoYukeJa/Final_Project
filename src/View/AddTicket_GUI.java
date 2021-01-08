@@ -72,7 +72,13 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
         add_ticket_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //ticketController.createNewTicket(split_evenly);
+                List<Double> useramounts = new ArrayList<>();
+                for (JTextField amount: amount_per_user
+                     ) {
+                    useramounts.add(Double.valueOf(amount.getText()));
+                }
+                editTotalAmount();
+                ticketController.createNewTicket(split_evenly, useramounts, ticket_type.getText(), groupID);
                 end_label.setText("clicked finish button");
             }
         });
@@ -164,7 +170,6 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
         for (int i = 0; i < usernames.size(); i++) {
             username_labels.add(new JLabel(usernames.get(i)));
             username_labels.get(i).setBounds(150, (i * 25) + 50, 100, 25);
-            //username_labels.get(i).setVisible(true);
             panel.add(username_labels.get(i));
         }
         System.out.println(usernames);
