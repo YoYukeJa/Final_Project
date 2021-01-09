@@ -48,11 +48,7 @@ public class Main {
         for (int i = 0; i < lijstje.size(); i++){
             System.out.println(userdb.getUserEntry(lijstje.get(i)).getName());
         }
-        /* How to get group ID
-        System.out.println(db.getUserEntry(0).getGroupIDList());
-        System.out.println(db.getUserEntry(1).getGroupIDList());
-        System.out.println(db.getUserEntry(3).getGroupIDList());
-        */
+
         List<Double> amounts = new ArrayList<>();
         amounts.add(5.5);
         amounts.add(23.4);

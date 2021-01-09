@@ -6,7 +6,7 @@ import java.util.List;
 public class TicketController extends AbstractController{
 
     public TicketController(){
-
+        groupsDB.addObserver(this);
     }
 
     public String getGroupName(int id){
@@ -32,8 +32,8 @@ public class TicketController extends AbstractController{
         return usernames;
     }
 
-    public boolean createNewTicket(Boolean split_evenly, List<Double> payment_amounts, String _ticket_type, int group_id){
-        int ticket_type = 0; //TODO dynamic maken met _ticket_type
+    public Integer createNewTicket(Boolean split_evenly, List<Double> payment_amounts, String _ticket_type, int group_id){
+        int ticket_type = 0;
         switch (_ticket_type.toLowerCase()){
             case "movieticket":
                 ticket_type = 0;
@@ -57,7 +57,6 @@ public class TicketController extends AbstractController{
                 ticket_type = 6;
                 break;
         }
-        ticketDB.addTicketEntry(group_id, groupsDB.getUsersFromGroup(group_id), payment_amounts, split_evenly, ticket_type);
-        return false;
+        return ticketDB.addTicketEntry(group_id, groupsDB.getUsersFromGroup(group_id), payment_amounts, split_evenly, ticket_type);
     }
 }

@@ -1,10 +1,13 @@
 package Database;
 
+import Controller.AbstractController;
 import Database.Interface.ITicketDatabase;
 import Model.Factories.TicketFactoryProvider;
 import Model.User_related.Ticket;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
 import java.util.Vector;
 
 public class TicketDatabase extends Database implements ITicketDatabase {

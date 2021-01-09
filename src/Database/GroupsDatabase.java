@@ -1,20 +1,24 @@
 package Database;
 
+import Controller.AbstractController;
 import Database.Interface.IGroupsDatabase;
 import Model.Factories.GroupFactory;
 import Model.User_related.Groups;
 import Model.User_related.NormalGroup;
 import Model.User_related.Users;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
 public class GroupsDatabase extends Database implements IGroupsDatabase {
     protected final Vector<Groups> groupDB;
     private static GroupsDatabase single_instance;
+    private List<AbstractController> observersList;
 
     private GroupsDatabase() {
         this.groupDB = new Vector<>();
+        this.observersList = new ArrayList<>();
     }
 
     public static GroupsDatabase getInstance(){
@@ -32,6 +36,14 @@ public class GroupsDatabase extends Database implements IGroupsDatabase {
         return id;
     }
 
+    public void addObserver(AbstractController controller){
+        observersList.add(controller);
+    }
+
+    public void removeObserver(AbstractController controller){
+        observersList.remove(controller);
+    }
+
     @Override
     public void editGroupEntry(Groups g) {
         groupDB.set(g.getIndex(), g);
@@ -45,6 +57,10 @@ public class GroupsDatabase extends Database implements IGroupsDatabase {
     @Override
     public void addMemberToGroup(int id, Users u) {
         groupDB.get(id).addMember(u.getUserId());
+        for (AbstractController controller: observersList
+             ) {
+            controller.update(this);
+        }
     }
 
     @Override

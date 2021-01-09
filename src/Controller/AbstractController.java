@@ -19,4 +19,8 @@ public abstract class AbstractController {
     public void logOut() {
         current_user = null;
     }
+
+    public void update(GroupsDatabase _groupsDB){
+        groupsDB = _groupsDB;
+    }
 }
