@@ -81,7 +81,7 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
                     useramounts.add(Double.valueOf(amount.getText()));
                 }
                 editTotalAmount();
-                ticketController.createNewTicket(split_evenly, useramounts, ticket_type.getText(), groupID);
+                System.out.println(ticketController.createNewTicket(split_evenly, useramounts, ticket_type.getText(), groupID));
                 end_label.setText("clicked finish button");
             }
         });
@@ -189,22 +189,26 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
             total_amount.setEditable(true);
             for (JTextField textfield: amount_per_user
                  ) {
-                String text = total_amount.getText();
-                double total_amount_number = 0;
-                if (!text.equals("")){
-                    total_amount_number = Double.parseDouble(text);
-                }
-                textfield.setText(String.valueOf(total_amount_number/amount_per_user.size()));
+                double amount = splitTotalAmount();
+                textfield.setText(String.valueOf(amount));
                 textfield.setEditable(false);
             }
         } else {
             for (JTextField textfield: amount_per_user
                  ) {
-                textfield.setText(String.valueOf(Double.valueOf(total_amount.getText())/amount_per_user.size()));
+                double amount = splitTotalAmount();
+                textfield.setText(String.valueOf(amount));
                 textfield.setEditable(true);
             }
             total_amount.setEditable(false);
         }
+    }
+
+    public double splitTotalAmount() {
+        double amount = Double.valueOf(total_amount.getText()) / amount_per_user.size();
+        amount = Math.floor(amount * 100) / 100;
+        System.out.println(amount);
+        return amount;
     }
 
     public void editTotalAmount(){
@@ -219,9 +223,10 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
                 total += Double.parseDouble(amount.getText());
             }
         }
+        double amount = splitTotalAmount();
         for (JTextField text: amount_per_user
              ) {
-            text.setText(String.valueOf(total/amount_per_user.size()));
+            text.setText(String.valueOf(amount));
         }
         total_amount.setText(String.valueOf(total));
         System.out.println(total);
