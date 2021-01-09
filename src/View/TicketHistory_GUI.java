@@ -82,7 +82,7 @@ public class TicketHistory_GUI extends JFrame implements IDefaultPage_GUI {
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Ticket history");
-        frame.pack();
+        frame.setSize(700, 300);
         frame.setVisible(true);
     }
 }

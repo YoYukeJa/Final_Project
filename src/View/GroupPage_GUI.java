@@ -132,7 +132,7 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Groups");
-        frame.pack();
+        frame.setSize(700, 300);
         frame.setVisible(true);
     }
 

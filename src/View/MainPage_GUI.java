@@ -120,7 +120,7 @@ public class MainPage_GUI extends JFrame implements IDefaultPage_GUI{
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Main Page");
-        frame.pack();
+        frame.setSize(700, 300);
         frame.setVisible(true);
     }
 }
