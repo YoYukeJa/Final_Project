@@ -36,8 +36,9 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         close_button = new JButton("Close page");
         add_friend_button = new JButton("Add friend");
         panel = new JPanel();
-        total_amount = controller.getTotalAmountFromGroup(current_group_id);
-        total_amount_label = new JLabel("Total: " + (total_amount));
+        total_amount_label = new JLabel();
+        friends_to_add = new JComboBox();
+        setTotalAmount();
         friend_label = new JLabel("Add a friend to the group: ");
         selected_friends = new ArrayList<>();
 
@@ -51,18 +52,7 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         getMembersOfGroup();
 
         List<String> friends = controller.getFriendList();
-        for (int i = 0; i < friends.size(); i++){
-            boolean check = false;
-            for (int j = 0; j < group_members.size(); j++){
-                if (friends.get(i).equals(group_members.get(j))){
-                    check = true;
-                }
-            }
-            if (!check){
-                friends_not_in_group.add(friends.get(i));
-            }
-        }
-        friends_to_add = new JComboBox(friends_not_in_group.toArray());
+        checkFriendsNotInGroup(friends);
         friend_label.setBounds(250, 150, 80, 25);
         friends_to_add.setBounds(350, 150, 80, 25);
         add_friend_button.setBounds(500, 150, 80, 25);
@@ -74,7 +64,6 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
             public void actionPerformed(ActionEvent e) {
                 selected_friends.add(friends_to_add.getSelectedItem().toString());
                 group_member_names.add(new JLabel(friends_to_add.getSelectedItem().toString()));
-                //panel.add(group_member_names.get(group_member_names.size()-1));
                 controller.addExistingGroupToUser(friends_to_add.getSelectedItem().toString(), group_list.getSelectedItem().toString());
                 friends_to_add.removeItemAt(friends_to_add.getSelectedIndex());
                 pageUIUpdate();
@@ -94,6 +83,8 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
                         current_group_id = group_ids.get(i);
                     }
                 }
+                setTotalAmount();
+                checkFriendsNotInGroup(friends);
                 pageUIUpdate();
             }
         });
@@ -109,6 +100,40 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         });
 
         createFrame();
+    }
+
+    public void setTotalAmount() {
+        total_amount = controller.getTotalAmountFromGroup(current_group_id);
+        total_amount_label.setText("Total: " + (total_amount));
+    }
+
+    public void checkFriendsNotInGroup(List<String> friends) {
+        panel.invalidate();
+        frame.invalidate();
+        friends_not_in_group = new ArrayList<>();
+        group_members = controller.getGroupMembers(current_group_id);
+        System.out.println("123" + friends);
+        for (int i = 0; i < friends_to_add.getItemCount(); i++){
+            friends_to_add.removeItemAt(i);
+        }
+        for (int i = 0; i < friends.size(); i++){
+            boolean check = false;
+            for (int j = 0; j < group_members.size(); j++){
+                if (friends.get(i).equals(group_members.get(j))){
+                    check = true;
+                }
+            }
+            if (!check){
+                friends_not_in_group.add(friends.get(i));
+                friends_to_add.addItem(friends_not_in_group.get(i));
+            }
+        }
+        System.out.println(friends_not_in_group);
+        frame.validate();
+        frame.repaint();
+        panel.revalidate();
+        panel.repaint();
+        panel.updateUI();
     }
 
     public void pageUIUpdate() {
@@ -151,18 +176,5 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         frame.validate();
         frame.repaint();
 
-    }
-
-    public List<String> checkForFriendsAlreadyInGroup(){
-        List<String> friends = controller.getFriendList();
-        for (String friend: friends
-             ) {
-            for (int i = 0; i < group_member_names.size(); i++){
-                if (group_member_names.get(i).getText().equals(friend)){
-                    friends.remove(friend);
-                }
-            }
-        }
-        return friends;
     }
 }

@@ -21,7 +21,6 @@ public class GroupController extends AbstractController {
     }
 
     public List<Integer> getGroupsFromUser(){
-        System.out.println(userDB.getUserEntry(current_user).getGroupIDList());
         return userDB.getUserEntry(current_user).getGroupIDList();
     }
 
