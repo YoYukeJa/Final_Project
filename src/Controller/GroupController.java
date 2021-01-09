@@ -61,9 +61,8 @@ public class GroupController extends AbstractController {
              ) {
             if (groupsDB.getGroupEntry(group_id).getName().equals(groupname)){
                 current_group = group_id;
-            } else { return false; }
+            }
         }
-
         for (int i = 0; i < userDB.getLengthOfDatabase(); i++){
             if (userDB.getUserEntry(i).getName().equals(username)){
                 groupsDB.addMemberToGroup(current_group, userDB.getUserEntry(i));

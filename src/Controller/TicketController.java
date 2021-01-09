@@ -60,6 +60,12 @@ public class TicketController extends AbstractController{
                 ticket_type = 6;
                 break;
         }
-        return ticketDB.addTicketEntry(group_id, groupsDB.getUsersFromGroup(group_id), payment_amounts, split_evenly, ticket_type);
+        int id = ticketDB.addTicketEntry(group_id, groupsDB.getUsersFromGroup(group_id), payment_amounts, split_evenly, ticket_type);
+        groupsDB.addTicketToGroup(group_id, id);
+        for (Integer user: groupsDB.getUsersFromGroup(group_id)
+             ) {
+            userDB.addTicketToUser(user, id);
+        }
+        return id;
     }
 }

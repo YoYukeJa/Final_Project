@@ -46,9 +46,6 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         group_list = new JComboBox(group_names.toArray());
         group_list.setSize(80, 25);
 
-
-        friends_not_in_group = new ArrayList<>();
-
         getMembersOfGroup();
 
         List<String> friends = controller.getFriendList();
@@ -63,7 +60,6 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 selected_friends.add(friends_to_add.getSelectedItem().toString());
-                group_member_names.add(new JLabel(friends_to_add.getSelectedItem().toString()));
                 controller.addExistingGroupToUser(friends_to_add.getSelectedItem().toString(), group_list.getSelectedItem().toString());
                 friends_to_add.removeItemAt(friends_to_add.getSelectedIndex());
                 pageUIUpdate();
@@ -104,6 +100,7 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
 
     public void setTotalAmount() {
         total_amount = controller.getTotalAmountFromGroup(current_group_id);
+        System.out.println(controller.getTotalAmountFromGroup(current_group_id));
         total_amount_label.setText("Total: " + (total_amount));
     }
 
@@ -112,7 +109,6 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         frame.invalidate();
         friends_not_in_group = new ArrayList<>();
         group_members = controller.getGroupMembers(current_group_id);
-        System.out.println("123" + friends);
         for (int i = 0; i < friends_to_add.getItemCount(); i++){
             friends_to_add.removeItemAt(i);
         }
@@ -128,7 +124,6 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
                 friends_to_add.addItem(friends_not_in_group.get(i));
             }
         }
-        System.out.println(friends_not_in_group);
         frame.validate();
         frame.repaint();
         panel.revalidate();
@@ -171,7 +166,6 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
             group_member_names.add(new JLabel(group_members.get(i)));
             group_member_names.get(i).setBounds(100, 20 + (i * 25), 80, 25);
             panel.add(group_member_names.get(i));
-            System.out.println("Hey");
         }
         frame.validate();
         frame.repaint();

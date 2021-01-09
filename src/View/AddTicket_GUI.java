@@ -78,11 +78,16 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
                 List<Double> useramounts = new ArrayList<>();
                 for (JTextField amount: amount_per_user
                      ) {
+                    System.out.println("De hoeveelheid is " + amount.getText());
                     useramounts.add(Double.valueOf(amount.getText()));
                 }
                 editTotalAmount();
                 System.out.println(ticketController.createNewTicket(split_evenly, useramounts, ticket_type.getText(), groupID));
                 end_label.setText("clicked finish button");
+                frame.setVisible(false);
+                frame.dispose();
+                MainPage_GUI mainPage_gui = new MainPage_GUI();
+                mainPage_gui.Initialize();
             }
         });
 
