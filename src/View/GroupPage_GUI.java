@@ -37,7 +37,7 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         add_friend_button = new JButton("Add friend");
         panel = new JPanel();
         total_amount = controller.getTotalAmountFromGroup(current_group_id);
-        total_amount_label = new JLabel((Double.toString(total_amount)));
+        total_amount_label = new JLabel("Total: " + (total_amount));
         friend_label = new JLabel("Add a friend to the group: ");
         selected_friends = new ArrayList<>();
 
@@ -67,6 +67,7 @@ public class GroupPage_GUI extends JFrame implements IDefaultPage_GUI {
         friends_to_add.setBounds(350, 150, 80, 25);
         add_friend_button.setBounds(500, 150, 80, 25);
         close_button.setBounds(10, 150, 80, 25);
+        total_amount_label.setBounds(10, 120, 100, 25);
 
         add_friend_button.addActionListener(new ActionListener() {
             @Override
