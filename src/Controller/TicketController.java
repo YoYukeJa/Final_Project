@@ -59,6 +59,9 @@ public class TicketController extends AbstractController{
             case "publictransport":
                 ticket_type = 6;
                 break;
+            default:
+                ticket_type = 7;
+                break;
         }
         int id = ticketDB.addTicketEntry(group_id, groupsDB.getUsersFromGroup(group_id), payment_amounts, split_evenly, ticket_type);
         groupsDB.addTicketToGroup(group_id, id);

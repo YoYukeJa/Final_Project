@@ -16,7 +16,7 @@ import java.util.List;
 public class AddTicket_GUI implements IDefaultPage_GUI{
     private JFrame frame;
     private JPanel panel;
-    private JLabel end_label, amount_label;
+    private JLabel end_label, amount_label, ticket_type_label;
     private List<JLabel> username_labels;
     private JButton add_ticket_button, update_total;
     private JTextField total_amount, ticket_type;
@@ -46,6 +46,7 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
         update_total = new JButton("Update total");
         splitting_evenly = new JCheckBox("Splitting evenly");
         total_amount = new JTextField(50);
+        ticket_type_label = new JLabel("Ticket type:");
         ticket_type = new JTextField(20);
         group_list = new JComboBox(group_names.toArray());
         end_label = new JLabel("Your ticket has been added.");
@@ -63,6 +64,8 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
         amount_label.setBounds(90, 30, 80, 25);
         total_amount.setBounds(180, 30, 80, 25);
         group_list.setBounds(0, 0, 80, 25);
+        ticket_type_label.setBounds(0, 60, 80, 25);
+        ticket_type.setBounds(90, 60, 80, 25);
         group_list.setSize(80, 25);
         end_label.setBounds(10, 700, 100, 25);
 
@@ -137,6 +140,8 @@ public class AddTicket_GUI implements IDefaultPage_GUI{
         panel.add(amount_label);
         panel.add(splitting_evenly);
         panel.add(end_label);
+        panel.add(ticket_type_label);
+        panel.add(ticket_type);
         panel.add(group_list);
         
 

@@ -11,7 +11,8 @@ enum TicketType {
     food,
     supermarket,
     housing,
-    publictransport
+    publictransport,
+    other
 };
 
 public class Ticket implements ITicket {
@@ -52,6 +53,8 @@ public class Ticket implements ITicket {
                 return TicketType.housing;
             case 6:
                 return TicketType.publictransport;
+            case 7:
+                return TicketType.other;
         }
         return null;
     }
