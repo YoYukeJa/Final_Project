@@ -21,6 +21,7 @@ public class MainController extends AbstractController{
         for (int ticket_id: userDB.getUserEntry(id).getTickets()
              ) {
             tickets.add(ticketDB.getTicketEntry(ticket_id));
+            System.out.println(ticket_id);
         }
         return tickets;
     }
