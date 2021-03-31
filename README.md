@@ -1,4 +1,6 @@
 # Software design final project
+Link to repo on github: https://github.com/mcbe1985/Final_Project
+
 
 ## Introduction
 For the course 5-Software Design we were tasked to program a Java application with workings similar to the popular Splitwise Application.
